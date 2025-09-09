@@ -1,0 +1,129 @@
+# LightChain L2 Archive Node Configuration
+
+# Node settings
+node_type: "archive"
+data_dir: "./data/archive"
+log_level: "info"
+
+# Network configuration
+network:
+  listen_addr: "0.0.0.0:30323"
+  external_addr: ""
+  bootstrap_nodes:
+  - "/ip4/127.0.0.1/tcp/30301/p2p/QmBootstrapNode1"
+  - "/ip4/127.0.0.1/tcp/30302/p2p/QmBootstrapNode2"
+  max_peers: 200 # Archive nodes can handle more peers
+  discovery_enabled: true
+  nat_enabled: true
+
+# Consensus configuration (archive nodes sync but don't validate)
+consensus:
+  type: "pos"
+  block_time: "2s"
+  epoch_length: 100
+  archive:
+    enabled: true
+    full_sync: true
+    serve_light_clients: true
+
+# State management (no pruning for archive nodes)
+state:
+  database:
+    type: "badger"
+    path: "./data/archive/state"
+    cache_size: "1GB" # Large cache for archive node
+  pruning:
+    enabled: false # Archive nodes keep all data
+  indexing:
+    enabled: true
+    transaction_index: true
+    receipt_index: true
+    log_index: true
+    trace_index: true
+
+# RPC configuration (enhanced for data serving)
+rpc:
+  enabled: true
+  listen_addr: "127.0.0.1:8565"
+  cors_origins: [ "*" ]
+  api_modules: [ "eth", "net", "web3", "lightchain", "archive", "debug", "trace" ]
+  max_connections: 500
+  timeout: "60s"
+
+# WebSocket configuration
+websocket:
+  enabled: true
+  listen_addr: "127.0.0.1:8566"
+  max_connections: 200
+
+# Metrics and monitoring
+metrics:
+  enabled: true
+  listen_addr: "127.0.0.1:9092"
+  path: "/metrics"
+
+# AggLayer integration (minimal for archive nodes)
+agglayer:
+  enabled: true
+  rpc_url: "https://agglayer-rpc.polygon.technology"
+  certificate_ttl: "2h"
+  batch_size: 50
+  sender:
+    enabled: false # Archive nodes don't send certificates
+  oracle:
+    enabled: true
+    update_interval: "60s"
+    verification_depth: 10
+
+# Archive-specific settings
+archive:
+  data_availability:
+    enabled: true
+    retention_period: "0" # Keep forever
+    serve_data: true
+
+  historical_queries:
+    max_range: 10000 # Max block range for queries
+    cache_size: "500MB"
+    timeout: "30s"
+
+  backup:
+    enabled: true
+    interval: "24h"
+    path: "./backups"
+    compression: true
+    retention_days: 30
+
+# API rate limiting
+rate_limiting:
+  enabled: true
+  requests_per_minute: 1000
+  burst_size: 100
+  whitelist:
+  - "127.0.0.1"
+  - "::1"
+
+# Storage optimization
+storage:
+  compression_enabled: true
+  compression_level: 6
+  async_writes: true
+  write_buffer_size: "64MB"
+  max_open_files: 1000
+
+# Security settings
+security:
+  keystore_path: "./keys"
+  password_file: "./keys/password.txt"
+  tls:
+    enabled: false
+    cert_file: ""
+    key_file: ""
+
+# Performance tuning
+performance:
+  max_tx_pool_size: 5000 # Smaller pool for archive nodes
+  block_gas_limit: "10000000"
+  tx_timeout: "120s"
+  sync_mode: "archive"
+  gc_percent: 5 # Conservative GC for stability

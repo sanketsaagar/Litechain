@@ -1,0 +1,122 @@
+# LightChain L2 Sequencer Node Configuration
+# Auto-generated for Kurtosis DevNet
+
+# Node identification
+node:
+  type: "sequencer"
+  id: "sequencer-{{.node_id}}"
+  data_dir: "./data/sequencer-{{.node_id}}"
+
+# Network configuration
+network:
+  chain_id: 1337
+  network_id: 1337
+  listen_addr: "0.0.0.0:{{.p2p_port}}"
+  external_addr: "sequencer-{{.node_id}}:{{.p2p_port}}"
+  bootstrap_nodes: []
+  max_peers: 50
+  enable_upnp: false
+
+# RPC configuration
+rpc:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.rpc_port}}
+  cors_origins: ["*"]
+  methods: ["*"]
+  max_connections: 200
+
+# WebSocket configuration
+websocket:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.ws_port}}
+  origins: ["*"]
+  max_connections: 200
+
+# Consensus configuration
+consensus:
+  engine: "proof_of_stake"
+  validator_key_file: "/app/keys/sequencer-{{.node_id}}.key"
+  validator_password_file: "/app/keys/password.txt"
+  block_time: "1s"
+  timeout_propose: "2s"
+  timeout_prevote: "500ms"
+  timeout_precommit: "500ms"
+  timeout_commit: "500ms"
+
+# Sequencer-specific configuration
+sequencer:
+  enabled: true
+  batch_size: 100
+  batch_timeout: "5s"
+  l1_submission_interval: "600s"  # 10 minutes
+  max_tx_per_batch: 1000
+  
+  # L1 integration
+  l1_rpc_url: "https://ethereum-sepolia.publicnode.com"
+  l1_contract_address: "0x1234567890123456789012345678901234567890"
+  l1_private_key_file: "/app/keys/l1-submitter.key"
+
+# State management
+state:
+  driver: "postgres"
+  postgres:
+    host: "{{.postgres_host}}"
+    port: 5432
+    database: "lightchain"
+    user: "lightchain"
+    password: "lightchain123"
+    max_connections: 20
+  cache_size: "512MB"
+  sync_mode: "full"
+  gc_percent: 10
+
+# Metrics configuration
+metrics:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.metrics_port}}
+  path: "/metrics"
+
+# AggLayer integration
+agglayer:
+  enabled: true
+  endpoint: "https://agglayer-devnet.polygon.technology"
+  
+  # AggSender configuration (Enhanced for sequencer)
+  agg_sender:
+    enabled: true
+    private_key_file: "/app/keys/aggsender-sequencer.key"
+    l1_rpc_url: "https://ethereum-sepolia.publicnode.com"
+    submit_interval: "300s"  # 5 minutes (faster for sequencer)
+    
+  # AggOracle configuration  
+  agg_oracle:
+    enabled: true
+    poll_interval: "15s"  # Faster polling for sequencer
+    verification_batch_size: 20
+
+# Logging
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  
+# Development settings (for Kurtosis DevNet)
+development:
+  enable_dev_mode: {{.enable_auto_mining}}
+  auto_mine_blocks: {{.auto_mine_blocks}}
+  dev_period: "{{.dev_period}}"
+  generate_empty_blocks: {{.generate_empty_blocks}}
+  continuous_mining: {{.continuous_mining}}
+  background_mining: {{.background_mining}}
+  min_empty_block_interval: "5s"
+  auto_seal_blocks: true
+
+# Performance settings
+performance:
+  block_gas_limit: "30000000"  # Higher gas limit for sequencer
+  tx_timeout: "60s"
+  sync_mode: "full"
+  gc_percent: 10

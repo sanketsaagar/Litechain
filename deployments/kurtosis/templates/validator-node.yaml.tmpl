@@ -1,0 +1,108 @@
+# LightChain L2 Validator Node Configuration
+# Auto-generated for Kurtosis DevNet
+
+# Node identification
+node:
+  type: "validator"
+  id: "validator-{{.node_id}}"
+  data_dir: "./data/validator-{{.node_id}}"
+
+# Network configuration
+network:
+  chain_id: 1337
+  network_id: 1337
+  listen_addr: "0.0.0.0:{{.p2p_port}}"
+  external_addr: "validator-{{.node_id}}:{{.p2p_port}}"
+  bootstrap_nodes: []
+  max_peers: 50
+  enable_upnp: false
+
+# RPC configuration
+rpc:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.rpc_port}}
+  cors_origins: ["*"]
+  methods: ["*"]
+  max_connections: 100
+
+# WebSocket configuration
+websocket:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.ws_port}}
+  origins: ["*"]
+  max_connections: 100
+
+# Consensus configuration
+consensus:
+  engine: "proof_of_stake"
+  validator_key_file: "/app/keys/validator-{{.node_id}}.key"
+  validator_password_file: "/app/keys/password.txt"
+  block_time: "2s"
+  timeout_propose: "3s"
+  timeout_prevote: "1s"
+  timeout_precommit: "1s"
+  timeout_commit: "1s"
+
+# State management
+state:
+  driver: "postgres"
+  postgres:
+    host: "{{.postgres_host}}"
+    port: 5432
+    database: "lightchain"
+    user: "lightchain"
+    password: "lightchain123"
+    max_connections: 10
+  cache_size: "256MB"
+  sync_mode: "full"
+  gc_percent: 20
+
+# Metrics configuration
+metrics:
+  enabled: true
+  host: "0.0.0.0"
+  port: {{.metrics_port}}
+  path: "/metrics"
+
+# AggLayer integration
+agglayer:
+  enabled: true
+  endpoint: "https://agglayer-devnet.polygon.technology"
+  
+  # AggSender configuration
+  agg_sender:
+    enabled: true
+    private_key_file: "/app/keys/aggsender.key"
+    l1_rpc_url: "https://ethereum-sepolia.publicnode.com"
+    submit_interval: "600s"  # 10 minutes
+    
+  # AggOracle configuration  
+  agg_oracle:
+    enabled: true
+    poll_interval: "30s"
+    verification_batch_size: 10
+
+# Logging
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  
+# Development settings (for Kurtosis DevNet)
+development:
+  enable_dev_mode: {{.enable_auto_mining}}
+  auto_mine_blocks: {{.auto_mine_blocks}}
+  dev_period: "{{.dev_period}}"
+  generate_empty_blocks: {{.generate_empty_blocks}}
+  continuous_mining: {{.continuous_mining}}
+  min_empty_block_interval: "10s"
+  auto_seal_blocks: true
+
+# Performance settings
+performance:
+  block_gas_limit: "10000000"
+  tx_timeout: "30s"
+  sync_mode: "full"
+  gc_percent: 20

@@ -1,0 +1,50 @@
+upstream lightchain_rpc {
+    {{range $server := .upstream_servers}}
+    server {{$server}};
+    {{end}}
+}
+
+upstream lightchain_ws {
+    {{range $server := .upstream_servers}}
+    server {{$server}};
+    {{end}}
+}
+
+server {
+    listen 8545;
+    server_name _;
+
+    location / {
+        proxy_pass http://lightchain_rpc;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # JSON-RPC specific headers
+        proxy_set_header Content-Type application/json;
+        proxy_buffering off;
+        proxy_read_timeout 60s;
+        proxy_send_timeout 60s;
+    }
+}
+
+server {
+    listen 8546;
+    server_name _;
+
+    location / {
+        proxy_pass http://lightchain_ws;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # WebSocket specific settings
+        proxy_read_timeout 86400;
+        proxy_send_timeout 86400;
+    }
+}
