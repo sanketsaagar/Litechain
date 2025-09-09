@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 ENCLAVE_NAME="lightchain-devnet"
-PACKAGE_PATH="github.com/lightchain-l2/deployments/kurtosis"
+PACKAGE_PATH="github.com/sanketsaagar/Litechain/deployments/kurtosis"
 LOCAL_PACKAGE_PATH="./deployments/kurtosis"
 KURTOSIS_VERSION="0.89.0"
 

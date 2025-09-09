@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/yourusername/lightchain-l2/internal/config"
+	"github.com/sanketsaagar/Litechain/internal/config"
 )
 
 // Client handles AggLayer integration

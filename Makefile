@@ -5,7 +5,7 @@
 # Build configuration
 BINARY_NAME=lightchain
 BUILD_DIR=build
-GO_MODULE=github.com/lightchain-l2/lightchain-l2
+GO_MODULE=github.com/sanketsaagar/Litechain
 
 # Go configuration
 GO_VERSION=1.22

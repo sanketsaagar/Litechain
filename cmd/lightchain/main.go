@@ -10,12 +10,9 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/yourusername/lightchain-l2/internal/config"
-	"github.com/yourusername/lightchain-l2/internal/node"
-	"github.com/yourusername/lightchain-l2/pkg/agglayer"
-	"github.com/yourusername/lightchain-l2/pkg/consensus"
-	"github.com/yourusername/lightchain-l2/pkg/networking"
-	"github.com/yourusername/lightchain-l2/pkg/state"
+	"github.com/sanketsaagar/Litechain/internal/config"
+	"github.com/sanketsaagar/Litechain/internal/node"
+	"github.com/sanketsaagar/Litechain/pkg/agglayer"
 )
 
 const (

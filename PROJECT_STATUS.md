@@ -1,5 +1,9 @@
 # 📊 LightChain L2 Project Status
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-sanketsaagar%2FLitechain-blue.svg)](https://github.com/sanketsaagar/Litechain)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/sanketsaagar/Litechain/blob/main/LICENSE)
+[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/sanketsaagar/Litechain)
+
 ## ✅ **COMPLETED IMPLEMENTATION**
 
 ### **🏗️ Core Architecture**
@@ -166,10 +170,21 @@ make backup
 
 ### **🚀 Start Your Unified Blockchain:**
 ```bash
+# Clone the repository
+git clone https://github.com/sanketsaagar/Litechain.git
+cd Litechain
+
 # Deploy and experience the future of L2!
 make docker-start
 make monitor
 make unified-test
 ```
+
+## 🌟 **Repository Information**
+
+- **GitHub**: [https://github.com/sanketsaagar/Litechain](https://github.com/sanketsaagar/Litechain)
+- **License**: MIT License
+- **Language**: Go 1.22+
+- **Status**: Production Ready ✅
 
 **Congratulations! You now have a next-generation L2 blockchain!** 🎊

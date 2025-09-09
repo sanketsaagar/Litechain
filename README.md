@@ -1,9 +1,10 @@
 # 🚀 LightChain L2 - Unified Blockchain Architecture
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/sanketsaagar/Litechain)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sanketsaagar/Litechain/blob/main/LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.22+-blue.svg)](https://golang.org)
-[![Docker](https://img.shields.io/badge/Docker-Ready-green.svg)](docker-compose.yml)
-[![Kurtosis](https://img.shields.io/badge/Kurtosis-Supported-purple.svg)](deployments/kurtosis/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-green.svg)](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
+[![Kurtosis](https://img.shields.io/badge/Kurtosis-Supported-purple.svg)](https://github.com/sanketsaagar/Litechain/tree/main/deployments/kurtosis)
 
 **LightChain L2** is a revolutionary **unified blockchain architecture** that combines the best of [Polygon's Heimdall](https://github.com/0xPolygon/heimdall-v2) consensus with [Erigon's](https://github.com/erigontech/erigon) parallel execution in a **single optimized layer**.
 
@@ -165,19 +166,18 @@ High-performance storage system:
 ## 📚 **Documentation**
 
 ### **Architecture & Design**
-- [📖 Unified Architecture Overview](docs/UNIFIED_ARCHITECTURE.md)
-- [🏗️ System Architecture](docs/ARCHITECTURE.md) 
-- [📋 Implementation Summary](docs/IMPLEMENTATION_SUMMARY.md)
+- [📖 Unified Architecture Overview](https://github.com/sanketsaagar/Litechain/blob/main/docs/UNIFIED_ARCHITECTURE.md)
+- [📋 Implementation Summary](https://github.com/sanketsaagar/Litechain/blob/main/docs/IMPLEMENTATION_SUMMARY.md)
 
 ### **Operations & Deployment**
-- [🚀 Quick Start Guide](docs/QUICKSTART.md)
-- [🔄 Continuous Operation](CONTINUOUS_OPERATION_GUIDE.md)
-- [🌉 L1-L2 Transaction Flow](docs/L1-L2-TRANSACTION-FLOW.md)
+- [🚀 Quick Start Guide](https://github.com/sanketsaagar/Litechain/blob/main/docs/QUICKSTART.md)
+- [🔄 Continuous Operation](https://github.com/sanketsaagar/Litechain/blob/main/CONTINUOUS_OPERATION_GUIDE.md)
+- [🌉 L1-L2 Transaction Flow](https://github.com/sanketsaagar/Litechain/blob/main/docs/L1-L2-TRANSACTION-FLOW.md)
 
 ### **Development**
-- [🐳 Docker Deployment](docker-compose.yml)
-- [🎯 Kurtosis DevNet](deployments/kurtosis/)
-- [🧪 Testing Framework](scripts/test-unified-blockchain.sh)
+- [🐳 Docker Deployment](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
+- [🎯 Kurtosis DevNet](https://github.com/sanketsaagar/Litechain/tree/main/deployments/kurtosis)
+- [🧪 Testing Framework](https://github.com/sanketsaagar/Litechain/blob/main/scripts/test-unified-blockchain.sh)
 
 ## 🎮 **Management Commands**
 
@@ -287,10 +287,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 **Links**
 
-- **Documentation**: [docs/](docs/)
-- **Deployment Configs**: [deployments/](deployments/)
-- **Management Scripts**: [scripts/](scripts/)
-- **Docker Setup**: [docker-compose.yml](docker-compose.yml)
+- **🏠 GitHub Repository**: [https://github.com/sanketsaagar/Litechain](https://github.com/sanketsaagar/Litechain)
+- **📚 Documentation**: [docs/](https://github.com/sanketsaagar/Litechain/tree/main/docs)
+- **🚀 Deployment Configs**: [deployments/](https://github.com/sanketsaagar/Litechain/tree/main/deployments)
+- **🛠️ Management Scripts**: [scripts/](https://github.com/sanketsaagar/Litechain/tree/main/scripts)
+- **🐳 Docker Setup**: [docker-compose.yml](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
 
 ## 🙏 **Acknowledgments**
 
@@ -306,12 +307,11 @@ LightChain L2 builds upon the excellent work of:
 
 ```bash
 # Quick start with Docker
-git clone <your-repo>
-cd lightchain-l2
+git clone https://github.com/sanketsaagar/Litechain.git
+cd Litechain
 ./scripts/network-lifecycle.sh start
 
 # Watch your unified blockchain in action! 🎉
 ```
 
-**Experience the future of L2 blockchain architecture with LightChain L2!** 🌟# Litechain
-# Litechain
+**Experience the future of L2 blockchain architecture with LightChain L2!** 🌟

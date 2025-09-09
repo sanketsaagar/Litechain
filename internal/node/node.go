@@ -6,10 +6,7 @@ import (
 	"log"
 	"sync"
 
-	"github.com/yourusername/lightchain-l2/pkg/agglayer"
-	"github.com/yourusername/lightchain-l2/pkg/consensus"
-	"github.com/yourusername/lightchain-l2/pkg/networking"
-	"github.com/yourusername/lightchain-l2/pkg/state"
+	"github.com/sanketsaagar/Litechain/pkg/agglayer"
 )
 
 // NodeType represents the type of node

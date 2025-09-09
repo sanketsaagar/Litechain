@@ -18,8 +18,8 @@ Before you begin, ensure you have:
 ### 1. Clone and Setup
 
 ```bash
-git clone https://github.com/yourusername/lightchain-l2.git
-cd lightchain-l2
+git clone https://github.com/sanketsaagar/Litechain.git
+cd Litechain
 
 # Run the automated setup script
 ./scripts/setup-dev.sh

@@ -1,4 +1,4 @@
-module github.com/yourusername/lightchain-l2
+module github.com/sanketsaagar/Litechain
 
 go 1.22.0
 
