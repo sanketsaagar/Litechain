@@ -90,7 +90,7 @@ coverage.html
 *.pprof
 
 # Network status files
-network_status.json
+
 
 # Kurtosis files
 .kurtosis/
