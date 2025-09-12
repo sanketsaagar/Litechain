@@ -1,33 +1,34 @@
-# 🚀 LightChain L2 - Unified Blockchain Architecture
+# 🚀 LightChain L1 - Independent Blockchain Architecture
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/sanketsaagar/Litechain)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sanketsaagar/Litechain/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/sanketsaagar/lightchain-l1)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sanketsaagar/lightchain-l1/blob/main/LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.22+-blue.svg)](https://golang.org)
-[![Docker](https://img.shields.io/badge/Docker-Ready-green.svg)](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
-[![Kurtosis](https://img.shields.io/badge/Kurtosis-Supported-purple.svg)](https://github.com/sanketsaagar/Litechain/tree/main/deployments/kurtosis)
+[![Docker](https://img.shields.io/badge/Docker-Ready-green.svg)](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
+[![Kurtosis](https://img.shields.io/badge/Kurtosis-Supported-purple.svg)](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
 
-**LightChain L2** is a revolutionary **unified blockchain architecture** that combines the best of [Polygon's Heimdall](https://github.com/0xPolygon/heimdall-v2) consensus with [Erigon's](https://github.com/erigontech/erigon) parallel execution in a **single optimized layer**.
+**LightChain L1** is a revolutionary **independent blockchain architecture** that implements Hybrid Proof-of-Stake (HPoS) consensus with advanced validator performance tracking and dynamic token economics.
 
-## 🔥 **Why LightChain L2?**
+## 🔥 **Why LightChain L1?**
 
 ### **🎯 Revolutionary Architecture**
-Unlike traditional dual-layer L2s (like Polygon PoS), LightChain L2 uses a **unified single-layer** design:
+Unlike traditional Proof-of-Work or basic Proof-of-Stake blockchains, LightChain L1 implements **Hybrid Proof-of-Stake (HPoS)** with performance-weighted validation:
 
 ```
-TRADITIONAL L2 (Polygon):          LIGHTCHAIN L2 UNIFIED:
-┌─────────────┐                    ┌─────────────────────┐
-│  HEIMDALL   │                    │   UNIFIED ENGINE    │
-│ (Consensus) │◄──────────►        │ • CometBFT Consensus│
-└─────────────┘                    │ • Erigon Execution  │
-      ▲                            │ • Atomic Operations │
-      │ Inter-layer                │ • Single State Mgmt │
-      │ Communication              └─────────────────────┘
-      ▼                                      ▲
-┌─────────────┐                              │
-│    BOR      │                              ▼
-│ (Execution) │                      ⚡ 25,000+ TPS
-└─────────────┘                      🚀 1-second blocks
-                                     💾 50% less resources
+TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
+┌─────────────┐                      ┌─────────────────────┐
+│  PROOF OF   │                      │   HYBRID PROOF      │
+│    WORK     │                      │   OF STAKE (HPoS)   │
+│ (High Energy)│                      │ • Performance Metrics│
+└─────────────┘                      │ • Dynamic Economics │
+      or                             │ • Efficient Consensus│
+┌─────────────┐                      │ • Native Staking    │
+│  BASIC PoS  │                      └─────────────────────┘
+│ (Simple)    │                              ▲
+└─────────────┘                              │
+                                             ▼
+                                     ⚡ High Performance
+                                     🚀 2-second blocks
+                                     💾 Energy Efficient
 ```
 
 ### **📊 Performance Comparison**
@@ -102,7 +103,7 @@ curl -fsSL https://docs.kurtosis.com/install.sh | bash
 ### **3. Test the Implementation**
 ```bash
 # Run comprehensive tests
-./scripts/test-unified-blockchain.sh
+./scripts/test-l1-blockchain.sh
 
 # Switch between environments
 ./scripts/docker-kurtosis-bridge.sh switch auto
@@ -172,12 +173,12 @@ Dynamic economic model:
 ### **Operations & Deployment**
 - [🚀 Quick Start Guide](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/QUICKSTART.md)
 - [🔄 Continuous Operation](https://github.com/sanketsaagar/lightchain-l1/blob/main/CONTINUOUS_OPERATION_GUIDE.md)
-- [🌉 L1 Transaction Flow](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/L1-L2-TRANSACTION-FLOW.md)
+- [🌉 L1 Transaction Flow](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/L1-TRANSACTION-FLOW.md)
 
 ### **Development**
 - [🐳 Docker Deployment](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
 - [🎯 Kurtosis DevNet](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
-- [🧪 Testing Framework](https://github.com/sanketsaagar/lightchain-l1/blob/main/scripts/test-unified-blockchain.sh)
+- [🧪 Testing Framework](https://github.com/sanketsaagar/lightchain-l1/blob/main/scripts/test-l1-blockchain.sh)
 
 ## 🎮 **Management Commands**
 
@@ -311,7 +312,7 @@ git clone https://github.com/sanketsaagar/lightchain-l1.git
 cd lightchain-l1
 ./scripts/network-lifecycle.sh start
 
-# Watch your unified blockchain in action! 🎉
+# Watch your L1 blockchain in action! 🎉
 ```
 
 **Experience the future of L1 blockchain architecture with LightChain L1!** 🌟
