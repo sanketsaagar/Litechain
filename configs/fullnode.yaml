@@ -1,0 +1,95 @@
+# LightChain L1 Full Node Configuration
+
+# Node settings
+node_type: "fullnode"
+data_dir: "./data/fullnode"
+log_level: "info"
+
+# Network configuration
+network:
+  listen_addr: "0.0.0.0:30323"
+  external_addr: ""
+  bootstrap_nodes:
+  - "/ip4/127.0.0.1/tcp/30301/p2p/QmBootstrapNode1"
+  - "/ip4/127.0.0.1/tcp/30302/p2p/QmBootstrapNode2"
+  max_peers: 100
+  discovery_enabled: true
+  nat_enabled: true
+
+# Consensus configuration (full nodes don't validate)
+consensus:
+  type: "hpos" # Hybrid Proof of Stake (L1 native)
+  block_time: "2s"
+  epoch_length: 100
+  validator:
+    enabled: false # Full nodes don't validate
+    stake_amount: "0"
+    commission_rate: "0"
+    auto_compound: false
+    performance_tracking: false
+
+# State management (full nodes keep recent data)
+state:
+  database:
+    type: "badger"
+    path: "./data/fullnode/state"
+    cache_size: "512MB"
+  pruning:
+    enabled: true # Full nodes prune old data
+    keep_recent: 10000
+    keep_every: 1000
+
+# RPC configuration
+rpc:
+  enabled: true
+  listen_addr: "127.0.0.1:8565"
+  cors_origins: [ "*" ]
+  api_modules: [ "eth", "net", "web3", "lightchain" ]
+  max_connections: 200
+
+# WebSocket configuration
+websocket:
+  enabled: true
+  listen_addr: "127.0.0.1:8566"
+  max_connections: 100
+
+# Metrics and monitoring
+metrics:
+  enabled: true
+  listen_addr: "127.0.0.1:9092"
+  path: "/metrics"
+
+# L1 Native Features
+l1_native:
+  enabled: true
+  finality_blocks: 3 # L1 native finality
+  cross_chain_bridges: true
+  native_staking: true
+  full_history: false # Full nodes keep limited history
+  indexing: true # Index recent transactions and events
+
+# Security settings
+security:
+  keystore_path: "./keys"
+  password_file: "./keys/password.txt"
+  tls:
+    enabled: false
+    cert_file: ""
+    key_file: ""
+
+# Performance tuning
+performance:
+  max_tx_pool_size: 5000
+  block_gas_limit: "10000000"
+  tx_timeout: "30s"
+  sync_mode: "fast" # Fast sync for full nodes
+  gc_percent: 20
+
+# Development settings (for local testing)
+development:
+  enable_dev_mode: false
+  auto_mine_blocks: false # Full nodes don't mine
+  dev_period: "2s"
+  generate_empty_blocks: false
+  continuous_mining: false
+  auto_seal_blocks: false

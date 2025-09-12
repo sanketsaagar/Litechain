@@ -32,7 +32,7 @@ lightchain-l1/
 ├── keys/                   # Key management
 ├── data/                   # Runtime data directory
 └── archive/                # Archived legacy code
-    └── legacy/             # Legacy L2-specific implementations
+    └── legacy/             # Legacy implementations (if any)
 ```
 
 ## Core Components

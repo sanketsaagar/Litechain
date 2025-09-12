@@ -1,5 +1,5 @@
 #!/bin/bash
-# LightChain L2 Kurtosis DevNet Manager
+# LightChain L1 Kurtosis DevNet Manager
 # Comprehensive management tool for Kurtosis-based development environment
 
 set -e
@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 ENCLAVE_NAME="lightchain-devnet"
-PACKAGE_PATH="github.com/sanketsaagar/Litechain/deployments/kurtosis"
+PACKAGE_PATH="github.com/sanketsaagar/lightchain-l1/deployments/kurtosis"
 LOCAL_PACKAGE_PATH="./deployments/kurtosis"
 KURTOSIS_VERSION="0.89.0"
 
@@ -59,18 +59,18 @@ check_docker() {
 
 # Start the devnet
 start_devnet() {
-    log "INFO" "🚀 Starting LightChain L2 Kurtosis DevNet..."
+    log "INFO" "🚀 Starting LightChain L1 Kurtosis DevNet..."
     
     # Parse arguments
     local validators=${1:-3}
-    local sequencers=${2:-1}
+    local fullnodes=${2:-2}
     local archives=${3:-1}
     local enable_monitoring=${4:-true}
     local enable_tx_generation=${5:-true}
     
     log "INFO" "Configuration:"
     log "INFO" "  • Validators: $validators"
-    log "INFO" "  • Sequencers: $sequencers"
+    log "INFO" "  • Full Nodes: $fullnodes"
     log "INFO" "  • Archives: $archives"
     log "INFO" "  • Monitoring: $enable_monitoring"
     log "INFO" "  • Transaction Generation: $enable_tx_generation"
@@ -85,7 +85,7 @@ start_devnet() {
     local args_json=$(cat <<EOF
 {
     "validators": $validators,
-    "sequencers": $sequencers,
+    "fullnodes": $fullnodes,
     "archives": $archives,
     "monitoring": $enable_monitoring,
     "enable_tx_generation": $enable_tx_generation
@@ -93,9 +93,9 @@ start_devnet() {
 EOF
 )
     
-    log "INFO" "Deploying LightChain L2 network..."
+    log "INFO" "Deploying LightChain L1 network..."
     if kurtosis run --enclave "$ENCLAVE_NAME" "$LOCAL_PACKAGE_PATH" --args "$args_json"; then
-        log "SUCCESS" "LightChain L2 DevNet started successfully!"
+        log "SUCCESS" "LightChain L1 DevNet started successfully!"
         show_access_points
     else
         log "ERROR" "Failed to start LightChain L2 DevNet"

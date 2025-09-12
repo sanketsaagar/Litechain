@@ -1,4 +1,4 @@
-# LightChain L2 Validator Node Configuration
+# LightChain L1 Validator Node Configuration
 
 # Node settings
 node_type: "validator"
@@ -18,14 +18,15 @@ network:
 
 # Consensus configuration
 consensus:
-  type: "pos" # Proof of Stake
+  type: "hpos" # Hybrid Proof of Stake (L1 native)
   block_time: "2s"
   epoch_length: 100
   validator:
     enabled: true
-    stake_amount: "1000000" # Minimum stake in wei
+    stake_amount: "1000000000000000000000" # 1000 LIGHT minimum stake
     commission_rate: "0.05" # 5% commission
     auto_compound: true
+    performance_tracking: true
 
 # State management
 state:
@@ -58,20 +59,12 @@ metrics:
   listen_addr: "127.0.0.1:9090"
   path: "/metrics"
 
-# AggLayer integration
-agglayer:
+# L1 Native Features - No L2/AggLayer integration needed
+l1_native:
   enabled: true
-  rpc_url: "https://agglayer-rpc.polygon.technology"
-  certificate_ttl: "1h"
-  batch_size: 100
-  sender:
-    enabled: true
-    private_key_path: "./keys/aggsender.key"
-    poll_interval: "10s"
-  oracle:
-    enabled: true
-    update_interval: "30s"
-    verification_depth: 6
+  finality_blocks: 3 # L1 native finality
+  cross_chain_bridges: true
+  native_staking: true
 
 # Security settings
 security:

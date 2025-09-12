@@ -1,5 +1,5 @@
-# LightChain L2 Kurtosis Devnet Configuration
-# This file defines a multi-node development network for LightChain L2
+# LightChain L1 Kurtosis Devnet Configuration
+# This file defines a multi-node development network for LightChain L1
 
 # Constants
 LIGHTCHAIN_IMAGE = "lightchain:latest"
@@ -13,7 +13,7 @@ CHAIN_ID = 1337
 
 # Node configurations
 VALIDATOR_NODES = 3
-SEQUENCER_NODES = 1
+FULLNODE_NODES = 2
 ARCHIVE_NODES = 1
 
 # Continuous operation features
@@ -24,14 +24,14 @@ TX_GENERATOR_IMAGE = "python:3.11-alpine"
 
 def run(plan, args={}):
     """
-    Main function to deploy LightChain L2 devnet
+    Main function to deploy LightChain L1 devnet
     """
     
-    plan.print("Starting LightChain L2 devnet deployment...")
+    plan.print("Starting LightChain L1 devnet deployment...")
     
     # Parse arguments
     validator_count = args.get("validators", VALIDATOR_NODES)
-    sequencer_count = args.get("sequencers", SEQUENCER_NODES)  
+    fullnode_count = args.get("fullnodes", FULLNODE_NODES)  
     archive_count = args.get("archives", ARCHIVE_NODES)
     enable_monitoring = args.get("monitoring", True)
     

@@ -207,7 +207,7 @@ Dynamic economic model:
 ### **Kurtosis DevNet**
 ```bash
 # Start Kurtosis environment
-./scripts/kurtosis-manager.sh start [validators] [sequencers] [archives]
+./scripts/kurtosis-manager.sh start [validators] [fullnodes] [archives]
 
 # Run tests
 ./scripts/kurtosis-manager.sh test
@@ -243,9 +243,9 @@ Dynamic economic model:
 ## 🔧 **Configuration**
 
 ### **Node Types**
-- **Validator**: Participates in consensus, validates transactions
-- **Sequencer**: Orders transactions, creates batches for L1
-- **Archive**: Stores complete historical data
+- **Validator**: Participates in HPoS consensus, validates transactions, earns staking rewards
+- **Full Node**: Syncs with the network, serves RPC requests, maintains recent state
+- **Archive**: Stores complete historical data, provides full blockchain history for analytics
 
 ### **Development Settings**
 The system includes auto-mining and transaction generation for development:
