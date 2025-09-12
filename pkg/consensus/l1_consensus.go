@@ -260,8 +260,20 @@ func (h *HPoSConsensus) selectProposer() common.Address {
 		totalWeight += weight
 	}
 	
+	// Handle edge case where total weight is zero
+	if totalWeight <= 0 {
+		// Simple round-robin fallback
+		idx := int(h.blockHeight.Uint64()) % len(validators)
+		return validators[idx].Address
+	}
+	
 	// Select using weighted random
-	r, _ := rand.Int(rand.Reader, big.NewInt(int64(totalWeight*1000)))
+	// Ensure we have a positive integer for rand.Int
+	weightInt := int64(totalWeight * 1000)
+	if weightInt <= 0 {
+		weightInt = 1 // Minimum value to avoid panic
+	}
+	r, _ := rand.Int(rand.Reader, big.NewInt(weightInt))
 	target := float64(r.Uint64()) / 1000.0
 	
 	current := 0.0

@@ -206,6 +206,12 @@ func DefaultL1Genesis(chainID *big.Int) *L1Genesis {
 		TreasuryRatio:     2000,            // 20%
 	})
 	
+	// Add default validators for initial bootstrap
+	builder.AddGenesisValidators()
+	
+	// Add foundation accounts
+	builder.AddFoundationAccounts()
+	
 	return builder.Build()
 }
 
@@ -261,22 +267,23 @@ func (gb *GenesisBuilder) AddValidator(validator GenesisValidator) *GenesisBuild
 
 // AddFoundationAccounts adds foundation/team accounts with vesting
 func (gb *GenesisBuilder) AddFoundationAccounts() *GenesisBuilder {
-	// Foundation multisig
-	foundationAddr := common.HexToAddress("0x1000000000000000000000000000000000000001")
-	foundationBalance, _ := new(big.Int).SetString("100000000000000000000000000", 10) // 100M LIGHT
-	gb.AddAccount(foundationAddr, foundationBalance)
+	// FOUNDER ALLOCATION - Replace with your actual wallet address
+	// This is where YOU as the blockchain founder will receive tokens
+	founderAddr := common.HexToAddress("0xYOUR_WALLET_ADDRESS_HERE")  // <-- UPDATE THIS WITH YOUR WALLET
+	founderBalance, _ := new(big.Int).SetString("200000000000000000000000000", 10) // 200M LIGHT to founder
+	gb.AddAccount(founderAddr, founderBalance)
 	
-	// Team allocation (vested)
+	// Team allocation (for future team members)
 	teamAddr := common.HexToAddress("0x1000000000000000000000000000000000000002")
 	teamBalance, _ := new(big.Int).SetString("50000000000000000000000000", 10) // 50M LIGHT
 	gb.AddAccount(teamAddr, teamBalance)
 	
-	// Ecosystem fund
+	// Ecosystem fund (for partnerships and development)
 	ecosystemAddr := common.HexToAddress("0x1000000000000000000000000000000000000003")
-	ecosystemBalance, _ := new(big.Int).SetString("200000000000000000000000000", 10) // 200M LIGHT
+	ecosystemBalance, _ := new(big.Int).SetString("100000000000000000000000000", 10) // 100M LIGHT
 	gb.AddAccount(ecosystemAddr, ecosystemBalance)
 	
-	// Treasury
+	// Treasury (for operational expenses)
 	treasuryAddr := common.HexToAddress("0x1000000000000000000000000000000000000004")
 	treasuryBalance, _ := new(big.Int).SetString("150000000000000000000000000", 10) // 150M LIGHT
 	gb.AddAccount(treasuryAddr, treasuryBalance)
