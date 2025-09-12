@@ -1,5 +1,5 @@
-# LightChain L1 Kurtosis Devnet Configuration
-# This file defines a multi-node development network for LightChain L1
+# LightBeam Testnet Kurtosis Configuration
+# This file defines a multi-node testing network for LightBeam (LightChain L1 Testnet)
 
 # Constants
 LIGHTCHAIN_IMAGE = "lightchain:latest"
@@ -24,10 +24,10 @@ TX_GENERATOR_IMAGE = "python:3.11-alpine"
 
 def run(plan, args={}):
     """
-    Main function to deploy LightChain L1 devnet
+    Main function to deploy LightBeam testnet
     """
     
-    plan.print("Starting LightChain L1 devnet deployment...")
+    plan.print("Starting LightBeam testnet deployment...")
     
     # Parse arguments
     validator_count = args.get("validators", VALIDATOR_NODES)

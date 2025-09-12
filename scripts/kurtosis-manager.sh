@@ -1,5 +1,5 @@
 #!/bin/bash
-# LightChain L1 Kurtosis DevNet Manager
+# LightBeam Testnet Kurtosis Manager
 # Comprehensive management tool for Kurtosis-based development environment
 
 set -e
@@ -14,7 +14,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-ENCLAVE_NAME="lightchain-devnet"
+ENCLAVE_NAME="lightbeam-testnet"
 PACKAGE_PATH="github.com/sanketsaagar/lightchain-l1/deployments/kurtosis"
 LOCAL_PACKAGE_PATH="./deployments/kurtosis"
 KURTOSIS_VERSION="0.89.0"
@@ -59,7 +59,7 @@ check_docker() {
 
 # Start the devnet
 start_devnet() {
-    log "INFO" "🚀 Starting LightChain L1 Kurtosis DevNet..."
+    log "INFO" "🚀 Starting LightBeam Testnet..."
     
     # Parse arguments
     local validators=${1:-3}
@@ -93,9 +93,9 @@ start_devnet() {
 EOF
 )
     
-    log "INFO" "Deploying LightChain L1 network..."
+    log "INFO" "Deploying LightBeam testnet..."
     if kurtosis run --enclave "$ENCLAVE_NAME" "$LOCAL_PACKAGE_PATH" --args "$args_json"; then
-        log "SUCCESS" "LightChain L1 DevNet started successfully!"
+        log "SUCCESS" "LightBeam Testnet started successfully!"
         show_access_points
     else
         log "ERROR" "Failed to start LightChain L2 DevNet"

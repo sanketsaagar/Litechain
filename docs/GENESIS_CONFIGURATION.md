@@ -16,18 +16,18 @@ Genesis configuration is like the **"DNA"** of your blockchain that defines:
 
 | **File** | **Purpose** | **Chain ID** | **Use Case** |
 |----------|-------------|--------------|--------------|
-| `genesis.yaml` | **Testnet/Development** | 1337 | Local testing, development |
-| `genesis-mainnet.yaml` | **Production Mainnet** | 1001 | Live production network |
+| `genesis.yaml` | **LightBeam Testnet** | 1337 | Local testing, development |
+| `genesis-mainnet.yaml` | **LightChain Mainnet** | 1001 | Live production network |
 
 ## 🎯 **Chain ID Usage**
 
-### **Chain ID 1337 (Testnet)**
+### **Chain ID 1337 (LightBeam Testnet)**
 - ✅ **Development and testing**
 - ✅ **Local devnet deployments**  
 - ✅ **Kurtosis test environments**
 - ❌ **Not for production use**
 
-### **Chain ID 1001 (Mainnet)**
+### **Chain ID 1001 (LightChain Mainnet)**
 - ✅ **Production mainnet deployment**
 - ✅ **Real LIGHT token value**
 - ✅ **Secure validator network**
@@ -102,22 +102,25 @@ contracts:
 
 ## 🚀 **How to Use Genesis Files**
 
-### **For Development (Testnet)**
+### **For Development (LightBeam Testnet)**
 ```bash
-# Use testnet genesis (chain ID 1337)
+# Use LightBeam testnet genesis (chain ID 1337)
 ./lightchain --chain-id 1337 --genesis configs/genesis.yaml
 
 # Or via Kurtosis
 ./scripts/kurtosis-manager.sh start 3 2 1
 ```
 
-### **For Production (Mainnet)**
+### **For Production (LightChain Mainnet)**
 ```bash
-# Use mainnet genesis (chain ID 1001)  
+# Use LightChain mainnet genesis (chain ID 1001)  
 ./lightchain --chain-id 1001 --genesis configs/genesis-mainnet.yaml
 
-# Connect to mainnet
+# Connect to LightChain mainnet
 lightchain-cli --chain-id 1001 --node https://rpc.lightchain.network
+
+# Connect to LightBeam testnet
+lightchain-cli --chain-id 1337 --node https://testnet-rpc.lightchain.network
 ```
 
 ## ⚠️ **Critical Setup Steps for Mainnet**

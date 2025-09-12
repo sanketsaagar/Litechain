@@ -73,7 +73,7 @@ TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
 
 ### **For Developers**
 ```bash
-# 1. Install CLI and get testnet tokens
+# 1. Install CLI and get LightBeam testnet tokens
 npm install -g @lightchain/cli
 lightchain-cli faucet --address YOUR_ADDRESS
 
@@ -81,7 +81,7 @@ lightchain-cli faucet --address YOUR_ADDRESS
 lightchain-cli developer register --github YOUR_USERNAME
 
 # 3. Deploy your first contract (earn 2,000+ LIGHT)
-lightchain-cli contract deploy YourContract.sol --network testnet
+lightchain-cli contract deploy YourContract.sol --network lightbeam
 
 # 🎉 Congratulations! You just earned your first rewards!
 ```
@@ -103,7 +103,7 @@ lightchain-cli contract deploy YourContract.sol --network testnet
 # Install Kurtosis first
 curl -fsSL https://docs.kurtosis.com/install.sh | bash
 
-# Start the devnet
+# Start LightBeam testnet
 ./scripts/kurtosis-manager.sh start
 
 # Run tests
@@ -187,7 +187,7 @@ Dynamic economic model:
 
 ### **Development**
 - [🐳 Docker Deployment](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
-- [🎯 Kurtosis DevNet](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
+- [🎯 LightBeam Testnet](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
 - [🧪 Testing Framework](https://github.com/sanketsaagar/lightchain-l1/blob/main/scripts/test-l1-blockchain.sh)
 
 ## 🎮 **Management Commands**
@@ -204,7 +204,7 @@ Dynamic economic model:
 ./scripts/network-lifecycle.sh status
 ```
 
-### **Kurtosis DevNet**
+### **LightBeam Testnet (Kurtosis)**
 ```bash
 # Start Kurtosis environment
 ./scripts/kurtosis-manager.sh start [validators] [fullnodes] [archives]

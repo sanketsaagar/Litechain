@@ -351,7 +351,7 @@ func init() {
 	// Global flags
 	rootCmd.PersistentFlags().StringVar(&nodeURL, "node", "http://localhost:8545", "Node URL")
 	rootCmd.PersistentFlags().StringVar(&privateKey, "key", "", "Private key (optional)")
-	rootCmd.PersistentFlags().Int64Var(&chainID, "chain-id", 1001, "Chain ID (1001=mainnet, 1337=testnet)")
+	rootCmd.PersistentFlags().Int64Var(&chainID, "chain-id", 1001, "Chain ID (1001=LightChain, 1337=LightBeam testnet)")
 	
 	// Add all command groups
 	rootCmd.AddCommand(accountCmd)

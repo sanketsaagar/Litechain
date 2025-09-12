@@ -3,13 +3,13 @@
 # Chain information
 chain_id: 1337
 network_id: 1337
-chain_name: "LightChain L1 Testnet"
+chain_name: "LightBeam Testnet"
 
 # Genesis block configuration
 genesis:
   timestamp: "2024-01-01T00:00:00Z"
   parent_hash: "0x0000000000000000000000000000000000000000000000000000000000000000"
-  extra_data: "LightChain L1 - Developer-First Blockchain with HPoS"
+  extra_data: "LightBeam Testnet - Developer Testing Environment"
   gas_limit: "10000000"
   difficulty: "0x1"
 
