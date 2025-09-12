@@ -27,7 +27,7 @@ func main() {
 		showVersion   = flag.Bool("version", false, "Show version information")
 		dataDir       = flag.String("data-dir", "./data", "Data directory for blockchain storage")
 		logLevel      = flag.String("log-level", "info", "Log level: debug, info, warn, error")
-		chainID       = flag.Uint64("chain-id", 1337, "L1 Chain ID")
+		chainID       = flag.Uint64("chain-id", 1001, "L1 Chain ID (1001=mainnet, 1337=testnet)")
 		listenAddr    = flag.String("listen", "0.0.0.0:30300", "P2P listen address")
 		bootstrap     = flag.String("bootstrap", "", "Comma-separated list of bootstrap peers")
 		genesisPath   = flag.String("genesis", "", "Path to genesis file (optional)")

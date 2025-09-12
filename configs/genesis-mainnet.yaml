@@ -1,16 +1,16 @@
-# LightChain L1 Genesis Configuration
+# LightChain L1 Mainnet Genesis Configuration
 
 # Chain information
-chain_id: 1337
-network_id: 1337
-chain_name: "LightChain L1 Testnet"
+chain_id: 1001 # Unique LightChain L1 Mainnet ID
+network_id: 1001
+chain_name: "LightChain L1 Mainnet"
 
 # Genesis block configuration
 genesis:
-  timestamp: "2024-01-01T00:00:00Z"
+  timestamp: "2024-12-31T00:00:00Z" # Mainnet launch
   parent_hash: "0x0000000000000000000000000000000000000000000000000000000000000000"
   extra_data: "LightChain L1 - Developer-First Blockchain with HPoS"
-  gas_limit: "10000000"
+  gas_limit: "30000000" # Higher limit for mainnet
   difficulty: "0x1"
 
 # Consensus configuration
@@ -19,54 +19,66 @@ consensus:
   epoch_length: 100
   block_time: "2s"
   min_validators: 3
-  max_validators: 100
+  max_validators: 21 # Optimized validator set
 
   # Staking parameters
   staking:
-    min_stake: "1000000000000000000000" # 1000 tokens (18 decimals)
+    min_stake: "1000000000000000000000" # 1000 LIGHT tokens (18 decimals)
     slash_fraction_double_sign: "0.05" # 5%
     slash_fraction_downtime: "0.01" # 1%
     downtime_jail_duration: "600s" # 10 minutes
 
-# Initial validators
+# Initial validators (REPLACE WITH YOUR ACTUAL VALIDATORS)
 validators:
-- address: "0x742A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F4"
+- address: "0xYOUR_VALIDATOR_ADDRESS_1"
   name: "Genesis Validator 1"
-  pub_key: "0x0459d7455d76b4e123c5f7e8b0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0"
-  stake: "5000000000000000000000" # 5000 tokens
-  commission_rate: "0.10" # 10%
+  pub_key: "0xYOUR_VALIDATOR_PUBKEY_1"
+  stake: "100000000000000000000000" # 100K LIGHT
+  commission_rate: "0.05" # 5%
 
-- address: "0x8B3A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F5"
-  name: "Genesis Validator 2"
-  pub_key: "0x0459d7455d76b4e123c5f7e8b0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b1"
-  stake: "5000000000000000000000" # 5000 tokens
-  commission_rate: "0.10" # 10%
+- address: "0xYOUR_VALIDATOR_ADDRESS_2"
+  name: "Genesis Validator 2"  
+  pub_key: "0xYOUR_VALIDATOR_PUBKEY_2"
+  stake: "100000000000000000000000" # 100K LIGHT
+  commission_rate: "0.05" # 5%
 
-- address: "0x9C4A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F6"
+- address: "0xYOUR_VALIDATOR_ADDRESS_3"
   name: "Genesis Validator 3"
-  pub_key: "0x0459d7455d76b4e123c5f7e8b0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b2"
-  stake: "5000000000000000000000" # 5000 tokens
-  commission_rate: "0.10" # 10%
+  pub_key: "0xYOUR_VALIDATOR_PUBKEY_3"
+  stake: "100000000000000000000000" # 100K LIGHT
+  commission_rate: "0.05" # 5%
 
-# Initial token allocation
+# Initial token allocation (1 Billion LIGHT Total)
 allocations:
-# Pre-funded accounts for development
-- address: "0x742A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F4"
-  balance: "100000000000000000000000000" # 100M tokens
+# Founder allocation (200M LIGHT - 20%)
+- address: "0xYOUR_WALLET_ADDRESS_HERE" # UPDATE WITH YOUR WALLET
+  balance: "200000000000000000000000000" # 200M LIGHT
 
-- address: "0x8B3A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F5"
-  balance: "100000000000000000000000000" # 100M tokens
+# Team allocation (50M LIGHT - 5%)
+- address: "0x1000000000000000000000000000000000000002"
+  balance: "50000000000000000000000000" # 50M LIGHT
 
-- address: "0x9C4A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F6"
-  balance: "100000000000000000000000000" # 100M tokens
+# Ecosystem fund (100M LIGHT - 10%)
+- address: "0x1000000000000000000000000000000000000003"
+  balance: "100000000000000000000000000" # 100M LIGHT
 
-# Treasury account
-- address: "0xA1B2C3D4E5F6789012345678901234567890ABCD"
-  balance: "500000000000000000000000000" # 500M tokens
+# Treasury (150M LIGHT - 15%)
+- address: "0x1000000000000000000000000000000000000004"
+  balance: "150000000000000000000000000" # 150M LIGHT
 
-# Development fund
-- address: "0xB2C3D4E5F6789012345678901234567890ABCDEF"
-  balance: "200000000000000000000000000" # 200M tokens
+# Validator initial stakes (300K LIGHT total)
+- address: "0xYOUR_VALIDATOR_ADDRESS_1"
+  balance: "100000000000000000000000" # 100K LIGHT
+- address: "0xYOUR_VALIDATOR_ADDRESS_2"
+  balance: "100000000000000000000000" # 100K LIGHT
+- address: "0xYOUR_VALIDATOR_ADDRESS_3"
+  balance: "100000000000000000000000" # 100K LIGHT
+
+# Remaining 499.7M LIGHT (49.97%) allocated through:
+# - Mining rewards (validator staking)
+# - Developer incentives ($10K-$1M+ rewards)
+# - Cross-chain bridge rewards
+# - Community rewards
 
 # Token configuration
 token:
@@ -75,7 +87,7 @@ token:
   decimals: 18
   total_supply: "1000000000000000000000000000" # 1B tokens
 
-# Gas configuration
+# Gas configuration (mainnet optimized)
 gas:
   min_gas_price: "1000000000" # 1 Gwei
   gas_price_oracle:
@@ -137,20 +149,21 @@ contracts:
   address: "0x0000000000000000000000000000000000002002"
   bytecode: "0x" # To be compiled and added
 
-- name: "BridgeContract"
+- name: "CrossChainBridge"
   address: "0x0000000000000000000000000000000000002003"
   bytecode: "0x" # To be compiled and added
 
-- name: "GovernanceContract"
+- name: "DeveloperRewards"
   address: "0x0000000000000000000000000000000000002004"
   bytecode: "0x" # To be compiled and added
 
-# Network bootstrapping
+# Network bootstrapping (REPLACE WITH ACTUAL MAINNET NODES)
 bootstrap:
   # Bootnode configurations
   bootnodes:
-  - "/ip4/127.0.0.1/tcp/30301/p2p/16Uiu2HAm7Vs8StL5RjKaRqN7BkZZS6Zw9G1XriBaYGZq4TdB5Hj4"
-  - "/ip4/127.0.0.1/tcp/30302/p2p/16Uiu2HAm8Kp8TxQ9RXrBGzgP9kBm7LJyGj5G4TdB5Hj4KKr2TZnE"
+  - "/ip4/MAINNET_IP_1/tcp/30301/p2p/MAINNET_NODE_ID_1"
+  - "/ip4/MAINNET_IP_2/tcp/30302/p2p/MAINNET_NODE_ID_2"
+  - "/ip4/MAINNET_IP_3/tcp/30303/p2p/MAINNET_NODE_ID_3"
 
   # DNS seeds (for production)
   dns_seeds:
@@ -160,23 +173,23 @@ bootstrap:
 
 # Hard fork schedule
 forks:
-# Future upgrades can be scheduled here
 - name: "Genesis"
   block: 0
   enabled: true
 
-# Example future fork
-- name: "Upgrade1"
+# Future upgrades can be scheduled here
+- name: "DeveloperIncentivesUpgrade"
   block: 1000000
   enabled: false
-  description: "Enhanced AggLayer integration"
+  description: "Enhanced developer reward system"
 
-# Development settings (devnet only)
-development:
-  enable_dev_accounts: true
-  auto_mine_blocks: true
-  dev_period: "1s" # Mining period for development
-  unlock_accounts:
-  - "0x742A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F4"
-  - "0x8B3A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F5"
-  - "0x9C4A4D1A0Ac05A73A48F10C2E2d6b0E3f1b2e3F6"
+- name: "CrossChainBridgesUpgrade"
+  block: 2000000
+  enabled: false
+  description: "Universal bridge to all major chains"
+
+# Production settings (mainnet only)
+production:
+  enable_dev_accounts: false
+  auto_mine_blocks: false
+  unlock_accounts: [] # No unlocked accounts on mainnet
