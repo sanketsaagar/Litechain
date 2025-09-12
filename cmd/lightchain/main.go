@@ -13,7 +13,7 @@ import (
 	"syscall"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/sanketsaagar/Litechain/pkg/l1chain"
+	"github.com/sanketsaagar/lightchain-l1/pkg/l1chain"
 )
 
 const (

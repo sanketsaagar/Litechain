@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/sanketsaagar/Litechain/pkg/consensus"
-	"github.com/sanketsaagar/Litechain/pkg/economics"
-	"github.com/sanketsaagar/Litechain/pkg/genesis"
-	"github.com/sanketsaagar/Litechain/pkg/network"
-	"github.com/sanketsaagar/Litechain/pkg/staking"
+	"github.com/sanketsaagar/lightchain-l1/pkg/consensus"
+	"github.com/sanketsaagar/lightchain-l1/pkg/economics"
+	"github.com/sanketsaagar/lightchain-l1/pkg/genesis"
+	"github.com/sanketsaagar/lightchain-l1/pkg/network"
+	"github.com/sanketsaagar/lightchain-l1/pkg/staking"
 )
 
 // LightChainL1 represents the complete L1 blockchain implementation

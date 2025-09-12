@@ -117,3 +117,6 @@ grafana_data/
 
 # Cache directories
 .cache/
+
+# Archive directory
+archive/

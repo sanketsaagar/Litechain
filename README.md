@@ -32,40 +32,40 @@ TRADITIONAL L2 (Polygon):          LIGHTCHAIN L2 UNIFIED:
 
 ### **📊 Performance Comparison**
 
-| **Metric** | **Polygon PoS** | **LightChain L2** | **Improvement** |
-|------------|-----------------|-------------------|-----------------|
-| **Block Time** | 2 seconds | **1 second** | **2x Faster** |
-| **TPS** | 7,000 | **25,000+** | **3.5x Higher** |
-| **Finality** | 6 seconds | **3 seconds** | **2x Faster** |
-| **Architecture** | Dual Layer | **Unified** | **Simplified** |
-| **Execution** | Sequential | **Parallel** | **Massive Speedup** |
-| **Resource Usage** | 2x Overhead | **Optimized** | **50% Reduction** |
+| **Metric** | **Bitcoin** | **Ethereum** | **LightChain L1** | **Advantage** |
+|------------|-------------|--------------|-------------------|---------------|
+| **Block Time** | 10 minutes | 12 seconds | **2 seconds** | **300x / 6x Faster** |
+| **Consensus** | Proof of Work | Proof of Stake | **HPoS** | **Performance-weighted** |
+| **Finality** | 60 minutes | 15 minutes | **6 seconds** | **600x / 150x Faster** |
+| **Energy Usage** | Very High | Medium | **Low** | **Eco-friendly** |
+| **Validator Selection** | Mining Power | Stake Amount | **Performance + Stake** | **Merit-based** |
+| **Economics** | Fixed | Basic | **Dynamic** | **Adaptive** |
 
 ## ⚡ **Key Features**
 
-### **🔥 Unified Consensus + Execution**
-- **CometBFT-inspired consensus** integrated directly with execution
-- **No inter-layer communication** overhead
-- **Atomic operations** for consensus and execution
-- **Fast finality** with immediate confirmation
+### **🔥 Hybrid Proof-of-Stake (HPoS) Consensus**
+- **Performance-weighted validation** system
+- **Dynamic validator selection** based on metrics
+- **Efficient block production** with 2-second intervals
+- **Byzantine fault tolerance** with fast finality
 
-### **⚡ Erigon-Inspired Parallel Execution**
-- **Parallel transaction processing** across multiple workers
-- **Dependency analysis** for safe concurrent execution
-- **MDBX database** for optimal storage performance
-- **State conflict detection** and resolution
+### **⚡ Advanced Validator Management**
+- **Real-time performance tracking** and scoring
+- **Automatic validator rotation** based on performance
+- **Stake-weighted rewards** with performance bonuses
+- **Slashing protection** with gradual penalties
 
-### **🌐 Native L1 Integration**
-- **AggLayer** for unified cross-chain liquidity
-- **Pessimistic proofs** for security
-- **Native token bridges** (no wrapped tokens)
-- **Automatic L1 settlement** batching
+### **🌐 Native Token Economics**
+- **Dynamic gas pricing** based on network load
+- **Deflationary token model** with fee burns
+- **Validator staking rewards** with compounding
+- **Economic incentives** aligned with network health
 
-### **🎯 Developer Experience**
-- **Full EVM compatibility** (Geth-compatible)
-- **Single system deployment** vs dual-layer complexity
-- **Unified logging and monitoring**
-- **Docker & Kurtosis** deployment support
+### **🎯 Developer & Node Operator Experience**
+- **Simple node setup** with single binary
+- **Comprehensive monitoring** and metrics
+- **Flexible deployment** options (Docker, Kurtosis, native)
+- **Production-ready** operations and maintenance tools
 
 ## 🚀 **Quick Start**
 
@@ -77,7 +77,7 @@ TRADITIONAL L2 (Polygon):          LIGHTCHAIN L2 UNIFIED:
 
 ### **1. Start with Docker (Recommended)**
 ```bash
-# Start the unified blockchain
+# Start the L1 blockchain
 ./scripts/network-lifecycle.sh start
 
 # Monitor live activity
@@ -114,7 +114,7 @@ Once deployed, you can access:
 
 | **Service** | **URL** | **Purpose** |
 |-------------|---------|-------------|
-| **Main RPC** | `http://localhost:8545` | Primary blockchain interface |
+| **L1 Node RPC** | `http://localhost:8545` | Primary blockchain interface |
 | **WebSocket** | `ws://localhost:8546` | Real-time events |
 | **Grafana** | `http://localhost:3000` | Monitoring dashboard (admin/admin123) |
 | **Prometheus** | `http://localhost:9090` | Metrics collection |
@@ -123,61 +123,61 @@ Once deployed, you can access:
 
 ### **Core Components**
 
-#### **1. Unified Engine** (`pkg/unified/engine.go`)
-The heart of LightChain L2 - combines consensus and execution:
+#### **1. L1 Chain Engine** (`pkg/l1chain/lightchain_l1.go`)
+The heart of LightChain L1 - HPoS consensus with validator management:
 ```go
-// Single atomic block production
-func (e *UnifiedEngine) produceBlock() error {
-    // 1. Consensus validation
-    shouldProduce := e.consensus.ShouldProduceBlock()
+// L1 block processing with performance tracking
+func (l1 *LightChainL1) processBlock() error {
+    // 1. Select validator based on performance + stake
+    proposer := l1.selectBestValidator()
     
-    // 2. Parallel execution  
-    receipts := e.evm.ExecuteTransactions(header, txs)
+    // 2. Process transactions and collect fees
+    receipts := l1.processTransactions(block.Transactions())
     
-    // 3. Atomic state update
-    e.stateManager.ApplyBlock(block, receipts)
+    // 3. Update validator performance metrics
+    l1.updateValidatorPerformance()
     
-    // 4. Consensus finalization
-    return e.consensus.FinalizeBlock(block)
+    // 4. Distribute rewards based on performance
+    return l1.distributeRewards(gasFeesCollected)
 }
 ```
 
-#### **2. Consensus Engine** (`pkg/unified/consensus.go`)
-CometBFT-inspired Proof of Stake:
-- **Validator voting** with prevote/precommit rounds
+#### **2. HPoS Consensus Engine** (`pkg/consensus/l1_consensus.go`)
+Hybrid Proof-of-Stake consensus mechanism:
+- **Performance-weighted validator selection**
 - **Byzantine fault tolerance** (2/3+ majority)
-- **Fast finality** with integrated execution
-- **Automatic validator set management**
+- **Fast finality** with 6-second confirmation
+- **Dynamic validator set** based on stake and performance
 
-#### **3. Parallel EVM** (`pkg/unified/evm.go`)
-Erigon-inspired execution engine:
-- **Multi-worker** parallel transaction processing
-- **Dependency analysis** for conflict-free execution
-- **MDBX storage** for high performance
-- **State change tracking** and optimization
+#### **3. Validator Staking** (`pkg/staking/validator_staking.go`)
+Advanced validator management system:
+- **Performance metrics** tracking and scoring
+- **Stake-weighted rewards** with performance bonuses
+- **Automatic slashing** for poor performance
+- **Dynamic validator rotation** and selection
 
-#### **4. Storage Layer** (`pkg/unified/erigon_storage.go`)
-High-performance storage system:
-- **MDBX database** (Erigon's choice)
-- **Write buffering** for batch operations
-- **LRU caching** for hot data
-- **Memory optimization** and cleanup
+#### **4. Token Economics** (`pkg/economics/token_model.go`)
+Dynamic economic model:
+- **Adaptive gas pricing** based on network load
+- **Deflationary mechanism** through fee burns
+- **Validator reward distribution** with compounding
+- **Economic incentives** aligned with network health
 
 ## 📚 **Documentation**
 
 ### **Architecture & Design**
-- [📖 Unified Architecture Overview](https://github.com/sanketsaagar/Litechain/blob/main/docs/UNIFIED_ARCHITECTURE.md)
-- [📋 Implementation Summary](https://github.com/sanketsaagar/Litechain/blob/main/docs/IMPLEMENTATION_SUMMARY.md)
+- [📖 L1 Architecture Overview](https://github.com/sanketsaagar/lightchain-l1/blob/main/ARCHITECTURE.md)
+- [📋 Implementation Summary](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/IMPLEMENTATION_SUMMARY.md)
 
 ### **Operations & Deployment**
-- [🚀 Quick Start Guide](https://github.com/sanketsaagar/Litechain/blob/main/docs/QUICKSTART.md)
-- [🔄 Continuous Operation](https://github.com/sanketsaagar/Litechain/blob/main/CONTINUOUS_OPERATION_GUIDE.md)
-- [🌉 L1-L2 Transaction Flow](https://github.com/sanketsaagar/Litechain/blob/main/docs/L1-L2-TRANSACTION-FLOW.md)
+- [🚀 Quick Start Guide](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/QUICKSTART.md)
+- [🔄 Continuous Operation](https://github.com/sanketsaagar/lightchain-l1/blob/main/CONTINUOUS_OPERATION_GUIDE.md)
+- [🌉 L1 Transaction Flow](https://github.com/sanketsaagar/lightchain-l1/blob/main/docs/L1-L2-TRANSACTION-FLOW.md)
 
 ### **Development**
-- [🐳 Docker Deployment](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
-- [🎯 Kurtosis DevNet](https://github.com/sanketsaagar/Litechain/tree/main/deployments/kurtosis)
-- [🧪 Testing Framework](https://github.com/sanketsaagar/Litechain/blob/main/scripts/test-unified-blockchain.sh)
+- [🐳 Docker Deployment](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
+- [🎯 Kurtosis DevNet](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
+- [🧪 Testing Framework](https://github.com/sanketsaagar/lightchain-l1/blob/main/scripts/test-unified-blockchain.sh)
 
 ## 🎮 **Management Commands**
 
@@ -249,29 +249,29 @@ development:
 
 ## 🌟 **Key Innovations**
 
-### **1. Unified Architecture**
-- **Single layer** instead of dual-layer complexity
-- **Direct integration** of consensus and execution
-- **Atomic operations** for consistency
-- **Simplified deployment** and operations
+### **1. Hybrid Proof-of-Stake (HPoS)**
+- **Performance-weighted** validator selection
+- **Merit-based consensus** combining stake and performance
+- **Fast finality** with Byzantine fault tolerance
+- **Energy-efficient** alternative to Proof-of-Work
 
-### **2. Parallel Execution**
-- **Multi-worker** transaction processing
-- **Dependency analysis** for safe parallelization
-- **Conflict detection** and resolution
-- **25,000+ TPS** capability
+### **2. Advanced Validator Management**
+- **Real-time performance tracking** and metrics
+- **Dynamic reward distribution** based on contribution
+- **Automatic slashing** for poor performance
+- **Stake delegation** and compound rewards
 
-### **3. Optimized Storage**
-- **MDBX database** for performance
-- **Write buffering** and batch operations
-- **Memory optimization** with intelligent caching
-- **50% resource reduction** vs dual-layer systems
+### **3. Dynamic Token Economics**
+- **Adaptive gas pricing** based on network load
+- **Deflationary mechanism** through fee burns
+- **Economic incentives** aligned with network health
+- **Sustainable tokenomics** for long-term viability
 
 ### **4. Production Ready**
-- **Docker deployment** with monitoring
-- **Kurtosis testing** framework
-- **Automatic restarts** and health checks
-- **Comprehensive logging** and metrics
+- **Single binary deployment** with comprehensive tooling
+- **Kurtosis testing** framework for validation
+- **Enterprise monitoring** with Grafana and Prometheus
+- **Operational excellence** with automated maintenance
 
 ## 🤝 **Contributing**
 
@@ -287,19 +287,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 **Links**
 
-- **🏠 GitHub Repository**: [https://github.com/sanketsaagar/Litechain](https://github.com/sanketsaagar/Litechain)
-- **📚 Documentation**: [docs/](https://github.com/sanketsaagar/Litechain/tree/main/docs)
-- **🚀 Deployment Configs**: [deployments/](https://github.com/sanketsaagar/Litechain/tree/main/deployments)
-- **🛠️ Management Scripts**: [scripts/](https://github.com/sanketsaagar/Litechain/tree/main/scripts)
-- **🐳 Docker Setup**: [docker-compose.yml](https://github.com/sanketsaagar/Litechain/blob/main/docker-compose.yml)
+- **🏠 GitHub Repository**: [https://github.com/sanketsaagar/lightchain-l1](https://github.com/sanketsaagar/lightchain-l1)
+- **📚 Documentation**: [docs/](https://github.com/sanketsaagar/lightchain-l1/tree/main/docs)
+- **🚀 Deployment Configs**: [deployments/](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments)
+- **🛠️ Management Scripts**: [scripts/](https://github.com/sanketsaagar/lightchain-l1/tree/main/scripts)
+- **🐳 Docker Setup**: [docker-compose.yml](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
 
 ## 🙏 **Acknowledgments**
 
-LightChain L2 builds upon the excellent work of:
-- **[Polygon Heimdall](https://github.com/0xPolygon/heimdall-v2)** - CometBFT consensus inspiration
-- **[Erigon](https://github.com/erigontech/erigon)** - Parallel execution and storage optimization
-- **[CometBFT](https://github.com/cometbft/cometbft)** - Byzantine fault tolerant consensus
-- **[Ethereum](https://github.com/ethereum/go-ethereum)** - EVM compatibility and tooling
+LightChain L1 builds upon the excellent work of:
+- **[Ethereum](https://github.com/ethereum/go-ethereum)** - Core blockchain architecture and cryptography
+- **[Cosmos SDK](https://github.com/cosmos/cosmos-sdk)** - Modular blockchain framework inspiration
+- **[CometBFT](https://github.com/cometbft/cometbft)** - Byzantine fault tolerant consensus patterns
+- **[Polygon](https://github.com/0xPolygon)** - Validator performance concepts
 
 ---
 
@@ -307,11 +307,11 @@ LightChain L2 builds upon the excellent work of:
 
 ```bash
 # Quick start with Docker
-git clone https://github.com/sanketsaagar/Litechain.git
-cd Litechain
+git clone https://github.com/sanketsaagar/lightchain-l1.git
+cd lightchain-l1
 ./scripts/network-lifecycle.sh start
 
 # Watch your unified blockchain in action! 🎉
 ```
 
-**Experience the future of L2 blockchain architecture with LightChain L2!** 🌟
+**Experience the future of L1 blockchain architecture with LightChain L1!** 🌟
