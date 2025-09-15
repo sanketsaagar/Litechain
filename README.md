@@ -15,14 +15,14 @@ Unlike traditional Proof-of-Work or basic Proof-of-Stake blockchains, LightChain
 
 ```
 TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
-┌─────────────┐                      ┌─────────────────────┐
-│  PROOF OF   │                      │   HYBRID PROOF      │
-│    WORK     │                      │   OF STAKE (HPoS)   │
-│ (High Energy)│                      │ • Performance Metrics│
-└─────────────┘                      │ • Dynamic Economics │
+┌─────────────┐                      ┌─────────────────────-┐
+│  PROOF OF   │                      │   HYBRID PROOF       │
+│    WORK     │                      │   OF STAKE (HPoS)    │
+│ (High Energy)│                     │ • Performance Metrics│
+└─────────────┘                      │ • Dynamic Economics  │
       or                             │ • Efficient Consensus│
-┌─────────────┐                      │ • Native Staking    │
-│  BASIC PoS  │                      └─────────────────────┘
+┌─────────────┐                      │ • Native Staking     │
+│  BASIC PoS  │                      └─────────────────────-┘
 │ (Simple)    │                              ▲
 └─────────────┘                              │
                                              ▼
