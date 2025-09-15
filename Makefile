@@ -1,4 +1,4 @@
-# LightChain L2 Unified Blockchain Makefile
+# LightChain L1 Independent Blockchain Makefile
 
 .PHONY: build clean docker-build docker-start docker-stop kurtosis-start kurtosis-stop test unified-test test-all lint fmt deps dev-setup monitor status switch backup upgrade dev-start prod-deploy help
 
@@ -13,12 +13,12 @@ GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 
 # Docker configuration
-DOCKER_IMAGE=lightchain-l2
+DOCKER_IMAGE=lightchain-l1
 DOCKER_TAG=latest
 
-# Unified blockchain build
+# L1 blockchain build
 build:
-	@echo "🔨 Building LightChain L2 Unified Blockchain..."
+	@echo "🔨 Building LightChain L1 Independent Blockchain..."
 	@mkdir -p $(BUILD_DIR)
 	@go build -o $(BUILD_DIR)/$(BINARY_NAME) ./cmd/lightchain
 	@echo "✅ Build complete: $(BUILD_DIR)/$(BINARY_NAME)"
@@ -32,31 +32,31 @@ clean:
 	@go clean
 	@echo "✅ Clean complete"
 
-# Build Docker image for unified blockchain
+# Build Docker image for L1 blockchain
 docker-build:
-	@echo "🐳 Building Docker image for unified blockchain..."
+	@echo "🐳 Building Docker image for L1 blockchain..."
 	@docker build -t $(DOCKER_IMAGE):$(DOCKER_TAG) .
 	@echo "✅ Docker image built: $(DOCKER_IMAGE):$(DOCKER_TAG)"
 
-# Start unified blockchain with Docker
+# Start L1 blockchain with Docker
 docker-start: docker-build
-	@echo "🚀 Starting LightChain L2 Unified Blockchain..."
+	@echo "🚀 Starting LightChain L1 Independent Blockchain..."
 	@./scripts/network-lifecycle.sh start
-	@echo "✅ LightChain L2 started successfully!"
+	@echo "✅ LightChain L1 started successfully!"
 	@echo "🌐 Access points:"
 	@echo "   • RPC: http://localhost:8545"
 	@echo "   • Grafana: http://localhost:3000 (admin/admin123)"
 	@echo "   • Prometheus: http://localhost:9090"
 
-# Stop unified blockchain
+# Stop L1 blockchain
 docker-stop:
-	@echo "🛑 Stopping LightChain L2..."
+	@echo "🛑 Stopping LightChain L1..."
 	@./scripts/network-lifecycle.sh stop
-	@echo "✅ LightChain L2 stopped"
+	@echo "✅ LightChain L1 stopped"
 
 # Start with Kurtosis DevNet
 kurtosis-start:
-	@echo "🎯 Starting LightChain L2 with Kurtosis DevNet..."
+	@echo "🎯 Starting LightChain L1 with Kurtosis DevNet..."
 	@./scripts/kurtosis-manager.sh start
 	@echo "✅ Kurtosis DevNet started!"
 
@@ -66,11 +66,11 @@ kurtosis-stop:
 	@./scripts/kurtosis-manager.sh stop || ./scripts/kurtosis-manager.sh clean
 	@echo "✅ Kurtosis DevNet stopped"
 
-# Test unified blockchain implementation
-unified-test:
-	@echo "🧪 Testing LightChain L2 Unified Architecture..."
+# Test L1 blockchain implementation
+l1-test:
+	@echo "🧪 Testing LightChain L1 Independent Architecture..."
 	@./scripts/test-unified-blockchain.sh
-	@echo "✅ Unified blockchain tests completed!"
+	@echo "✅ L1 blockchain tests completed!"
 
 # Run Go tests
 test:
@@ -79,7 +79,7 @@ test:
 	@echo "✅ Go tests complete"
 
 # Test both Docker and Kurtosis environments
-test-all: unified-test
+test-all: l1-test
 	@echo "🔄 Testing environment switching..."
 	@./scripts/docker-kurtosis-bridge.sh compare
 	@echo "✅ All tests completed!"
@@ -116,7 +116,7 @@ monitor:
 
 # Check blockchain status
 status:
-	@echo "📊 Checking LightChain L2 status..."
+	@echo "📊 Checking LightChain L1 status..."
 	@./scripts/network-lifecycle.sh status
 
 # Switch between environments
@@ -136,7 +136,7 @@ upgrade:
 
 # Full development startup
 dev-start: dev-setup docker-start
-	@echo "🎉 LightChain L2 development environment ready!"
+	@echo "🎉 LightChain L1 development environment ready!"
 	@echo ""
 	@echo "🎯 Next steps:"
 	@echo "   make monitor     # Monitor blockchain activity"
@@ -159,16 +159,16 @@ help:
 	@echo "   docker-build  - Build Docker image for unified blockchain"
 	@echo ""
 	@echo "🚀 DEPLOYMENT COMMANDS:"
-	@echo "   docker-start  - Start unified blockchain with Docker"
+	@echo "   docker-start  - Start L1 blockchain with Docker"
 	@echo "   docker-stop   - Stop Docker deployment"
 	@echo "   kurtosis-start - Start with Kurtosis DevNet"
 	@echo "   kurtosis-stop - Stop Kurtosis DevNet"
 	@echo "   prod-deploy   - Full production deployment"
 	@echo ""
 	@echo "🧪 TESTING COMMANDS:"
-	@echo "   unified-test  - Test unified blockchain architecture"
+	@echo "   l1-test       - Test L1 blockchain architecture"
 	@echo "   test          - Run Go unit tests"
-	@echo "   test-all      - Run all tests (unified + Go + environments)"
+	@echo "   test-all      - Run all tests (L1 + Go + environments)"
 	@echo ""
 	@echo "🛠️  DEVELOPMENT COMMANDS:"
 	@echo "   dev-setup     - Setup development environment"
@@ -185,13 +185,13 @@ help:
 	@echo "   upgrade       - Trigger network upgrade"
 	@echo ""
 	@echo "📚 DOCUMENTATION:"
-	@echo "   docs/UNIFIED_ARCHITECTURE.md     - Architecture overview"
+	@echo "   docs/L1_ARCHITECTURE.md          - Architecture overview"
 	@echo "   docs/IMPLEMENTATION_SUMMARY.md   - Implementation details"
 	@echo "   CONTINUOUS_OPERATION_GUIDE.md    - Operations guide"
 	@echo ""
 	@echo "🌟 QUICK START:"
 	@echo "   make dev-start    # Start everything for development"
-	@echo "   make unified-test # Test the implementation"
+	@echo "   make l1-test     # Test the implementation"
 	@echo "   make monitor      # Watch it run!"
 
 # Default target

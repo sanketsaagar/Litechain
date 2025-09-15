@@ -1,4 +1,4 @@
-# Multi-stage build for LightChain L2
+# Multi-stage build for LightChain L1
 FROM golang:1.23-alpine AS builder
 
 # Install build dependencies

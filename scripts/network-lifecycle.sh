@@ -1,5 +1,5 @@
 #!/bin/bash
-# LightChain L2 Network Lifecycle Management
+# LightChain L1 Network Lifecycle Management
 # Handles network startup, continuous operation, and controlled upgrades
 
 set -e
@@ -13,7 +13,7 @@ PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
 # Configuration
-NETWORK_NAME="LightChain L2"
+NETWORK_NAME="LightChain L1"
 DATA_DIR="./data"
 UPGRADE_FLAG_FILE="./NETWORK_UPGRADE_REQUIRED"
 MAINTENANCE_FLAG_FILE="./MAINTENANCE_MODE"
