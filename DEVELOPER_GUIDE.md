@@ -1,6 +1,6 @@
-# 🚀 LightChain L1 Developer Guide
+# 🔐 LightChain L1 ZK-Native Developer Guide
 
-Welcome to the most developer-friendly blockchain ecosystem! This guide will get you building on LightChain L1 in minutes, not hours.
+Welcome to the world's first ZK-native blockchain ecosystem! This guide will get you building privacy-preserving applications on LightChain L1 in minutes, not hours.
 
 ## 🎯 **Why Developers Choose LightChain L1**
 

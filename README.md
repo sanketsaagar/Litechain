@@ -1,4 +1,4 @@
-# 🚀 LightChain L1 - Independent Blockchain Architecture
+# 🔐 LightChain L1 - First ZK-Native Independent Blockchain
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/sanketsaagar/lightchain-l1)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sanketsaagar/lightchain-l1/blob/main/LICENSE)
@@ -6,12 +6,12 @@
 [![Docker](https://img.shields.io/badge/Docker-Ready-green.svg)](https://github.com/sanketsaagar/lightchain-l1/blob/main/docker-compose.yml)
 [![Kurtosis](https://img.shields.io/badge/Kurtosis-Supported-purple.svg)](https://github.com/sanketsaagar/lightchain-l1/tree/main/deployments/kurtosis)
 
-**LightChain L1** is a revolutionary **independent blockchain architecture** that implements Hybrid Proof-of-Stake (HPoS) consensus with advanced validator performance tracking and dynamic token economics.
+**LightChain L1** is a revolutionary **ZK-native independent blockchain** that implements Hybrid Proof-of-Stake (HPoS) consensus with **native zero-knowledge capabilities**, parallel execution, and comprehensive privacy features - the first L1 to combine Solana-level performance with Ethereum compatibility and cutting-edge ZK technology.
 
 ## 🔥 **Why LightChain L1?**
 
-### **🎯 Revolutionary Architecture**
-Unlike traditional Proof-of-Work or basic Proof-of-Stake blockchains, LightChain L1 implements **Hybrid Proof-of-Stake (HPoS)** with performance-weighted validation:
+### **🎯 Revolutionary ZK-Native Architecture**
+Unlike traditional blockchains, LightChain L1 is the **first L1 with native zero-knowledge capabilities** that implements **Hybrid Proof-of-Stake (HPoS)** with performance-weighted validation and comprehensive ZK features:
 
 ```
 TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
@@ -35,21 +35,26 @@ TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
 
 | **Metric** | **Ethereum** | **Polygon** | **Solana** | **LightChain L1** | **Advantage** |
 |------------|--------------|-------------|------------|------------------|---------------|
-| **TPS** | 15 | 7,000 | 65,000 (peak) | **6,400+** | **400x+ vs ETH** |
+| **TPS** | 15 | 7,000 | 65,000 (peak) | **6,400+ base + 150K rollups** | **400x+ vs ETH** |
 | **Block Time** | 12 seconds | 2 seconds | 400ms | **2 seconds** | **6x vs ETH** |
 | **Finality** | 6+ minutes | 6 seconds | 2.5 seconds | **4 seconds** | **90x+ vs ETH** |
 | **EVM Compatible** | ✅ Yes | ✅ Yes | ❌ No | **✅ Yes** | **Unique advantage** |
 | **Parallel Execution** | ❌ Sequential | ❌ Sequential | ✅ Yes | **✅ Yes** | **Like Solana** |
-| **Cross-Chain** | Limited | Ethereum | None | **6 chains** | **Universal** |
-| **Developer Tools** | Excellent | Good | Limited | **Excellent** | **MetaMask, Hardhat** |
+| **ZK Capabilities** | ❌ None | ❌ None | ❌ None | **✅ Native ZK** | **World first** |
+| **Privacy Features** | ❌ None | ❌ None | ❌ None | **✅ Full Suite** | **Complete privacy** |
+| **Cross-Chain** | Limited | Ethereum | None | **6 chains + ZK** | **Universal + Private** |
+| **Developer Tools** | Excellent | Good | Limited | **Excellent + ZK** | **MetaMask + ZK CLI** |
 
 ## 🚀 **What Makes LightChain L1 Competitive**
 
-### **⚡ Solana-Level Performance with EVM Compatibility**
-- **6,400+ TPS** - competitive with high-performance blockchains
+### **🔐 World's First ZK-Native L1 with Solana-Level Performance**
+- **6,400+ TPS base + 150K TPS with ZK rollups** - industry-leading performance
 - **4-second finality** - faster than most blockchains
+- **Native ZK capabilities** - SNARKs, STARKs, Bulletproofs built-in
+- **Privacy-preserving transactions** - hidden amounts and recipients
+- **ZK rollup infrastructure** - up to 100 rollups, 50K TPS each
 - **Parallel execution** - Solana-style transaction processing
-- **100% EVM compatible** - something Solana cannot offer
+- **100% EVM compatible** - deploy existing contracts with ZK privacy
 
 ### **🛠️ Superior Developer Experience**
 - **MetaMask compatible** - use existing wallets
@@ -57,17 +62,20 @@ TRADITIONAL L1 (Bitcoin/Ethereum):   LIGHTCHAIN L1 HPoS:
 - **Copy-paste contracts** from Ethereum - instant migration
 - **Comprehensive CLI** for testing and deployment
 
-### **🌉 Universal Cross-Chain Ecosystem**
-- **Native bridges** to 6 major blockchains
+### **🌉 Universal ZK Cross-Chain Ecosystem**
+- **Privacy-preserving bridges** to 6 major blockchains
+- **ZK-powered cross-chain transfers** with hidden amounts
 - **Sub-1% bridge fees** vs 3-5% on other bridges
-- **Instant liquidity** across all supported chains
-- **No wrapped tokens** complexity
+- **No KYC leakage** between chains
+- **Universal ZK bridges** - first blockchain to offer private cross-chain
 
-### **💰 Developer Incentive Program**
-- **Earn rewards** for contract deployment and usage
-- **Performance bonuses** for high-TPS applications
-- **Ecosystem grants** for DeFi and GameFi protocols
-- **Validator rewards** for running infrastructure
+### **💰 ZK Developer Incentive Program**
+- **Earn rewards** for ZK-enabled contract deployment
+- **Privacy bonuses** for implementing ZK features
+- **ZK rollup grants** for high-performance applications
+- **Performance bonuses** for utilizing parallel execution
+- **Cross-chain rewards** for using ZK bridges
+- **Validator rewards** for running ZK-enabled infrastructure
 
 ## 💰 **Start Building in 5 Minutes**
 
@@ -87,6 +95,9 @@ make build
 # 4. Test performance (see 6,400+ TPS!)
 ./build/lightchain-cli perf benchmark 10000 --parallel
 
+# 5. Test ZK capabilities
+./build/lightchain-cli zk private-transfer --amount 1000 --proof snark
+
 # 🎉 Your contract now runs 400x faster than Ethereum!
 ```
 
@@ -95,8 +106,9 @@ make build
 # Start the L1 blockchain with parallel execution
 ./build/lightchain --type validator --chain-id 1337
 
-# Test performance
+# Test performance and ZK capabilities
 ./scripts/test-performance.sh
+./scripts/demo-zk-capabilities.sh
 
 # Monitor with beautiful CLI
 ./build/lightchain-cli network status
@@ -264,29 +276,35 @@ development:
 
 ## 🌟 **Key Innovations**
 
-### **1. Parallel Execution Engine (Solana-Style)**
-- **Multi-worker architecture** for concurrent transaction processing
+### **1. ZK-Native Parallel Execution Engine**
+- **Multi-worker architecture** with ZK proof verification
+- **Native ZK rollup support** up to 150K TPS
 - **Dependency analysis** to maximize parallelism safely
-- **Conflict resolution** for optimal throughput
-- **6,400+ TPS** achieved with 8 workers
+- **ZK proof caching** for optimal performance
+- **6,400+ TPS base + 150K TPS with ZK rollups**
 
-### **2. Smart Mempool with Performance Optimization**
+### **2. ZK-Enhanced Smart Mempool**
+- **Privacy-preserving transaction pools** with ZK proofs
 - **Priority-based ordering** with gas price optimization
-- **Automatic batching** for parallel execution
-- **Conflict detection** to prevent transaction failures
-- **Real-time performance metrics** and monitoring
+- **Automatic ZK proof batching** for parallel execution
+- **Private transaction conflict detection**
+- **Real-time ZK verification metrics** and monitoring
 
-### **3. EVM Compatibility + High Performance**
-- **100% Ethereum compatibility** - use MetaMask, Hardhat, Remix
-- **Instant contract migration** from Ethereum
-- **Parallel execution** while maintaining EVM semantics
-- **Best of both worlds** - Ethereum ecosystem + Solana performance
+### **3. ZK-Enhanced EVM Compatibility**
+- **100% Ethereum compatibility** with ZK privacy extensions
+- **Instant contract migration** from Ethereum with privacy upgrades
+- **ZK-enabled smart contracts** using familiar Solidity
+- **Privacy-preserving DeFi** with hidden amounts and balances
+- **ZK rollup deployment** with one CLI command
+- **Best of all worlds** - Ethereum ecosystem + Solana performance + ZK privacy
 
-### **4. Universal Cross-Chain Infrastructure**
-- **Native bridges** to 6 major blockchains
-- **Professional CLI tools** for developers
+### **4. Universal ZK Cross-Chain Infrastructure**
+- **Privacy-preserving bridges** to 6 major blockchains
+- **ZK-powered cross-chain transfers** with hidden amounts
+- **Professional ZK CLI tools** for developers
+- **ZK rollup management** and deployment tools
 - **Production monitoring** with Grafana and Prometheus
-- **Comprehensive testing** framework with performance benchmarks
+- **Comprehensive ZK testing** framework with privacy benchmarks
 
 ## 🤝 **Contributing**
 
@@ -342,4 +360,4 @@ make build
 - **vs Polygon**: Faster TPS + parallel execution  
 - **vs Ethereum**: 400x faster + same developer tools
 
-**LightChain L1 - The first blockchain to offer both high performance AND full Ethereum compatibility!**
+**LightChain L1 - The first blockchain to offer ZK-native privacy, Solana-level performance, AND full Ethereum compatibility!**

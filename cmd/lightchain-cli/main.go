@@ -17,8 +17,8 @@ const (
 	cliName = "lightchain-cli"
 	version = "v1.0.0"
 	banner  = `
-🚀 LightChain L1 Developer CLI
-High-Performance EVM-Compatible Blockchain with Parallel Execution
+🔐 LightChain L1 ZK-Native Developer CLI
+First ZK-Enabled L1 Blockchain with Privacy & Parallel Execution
 `
 )
 
@@ -32,19 +32,21 @@ var (
 // rootCmd represents the base command
 var rootCmd = &cobra.Command{
 	Use:   cliName,
-	Short: "LightChain L1 Developer CLI",
+	Short: "LightChain L1 ZK-Native Developer CLI",
 	Long: banner + `
-The LightChain CLI provides tools for developers to interact with the LightChain L1 blockchain,
-deploy contracts, manage accounts, and test performance.
+The LightChain CLI provides tools for developers to interact with the world's first 
+ZK-native L1 blockchain, featuring privacy, performance, and EVM compatibility.
 
 Key Features:
-• 🔥 EVM-compatible smart contract deployment
-• ⚡ Parallel transaction execution testing
-• 🌉 Cross-chain bridge operations
-• 📊 Performance benchmarking tools
-• 💰 Developer reward claiming`,
+• 🔐 Zero-knowledge privacy features (SNARKs, STARKs, Bulletproofs)
+• 🚀 ZK rollup deployment and management
+• 🔥 EVM-compatible smart contract deployment with ZK extensions
+• ⚡ Parallel transaction execution testing (6,400+ TPS)
+• 🌉 Privacy-preserving cross-chain bridge operations
+• 📊 ZK-enhanced performance benchmarking tools
+• 💰 Developer reward claiming with privacy bonuses`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(banner)
+		fmt.Print(banner)
 		cmd.Help()
 	},
 }

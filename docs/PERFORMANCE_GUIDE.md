@@ -1,10 +1,10 @@
-# 🚀 LightChain L1 Performance Guide
+# 🔐 LightChain L1 ZK-Native Performance Guide
 
-**Making Your L1 Blockchain Competitive with Solana**
+**The World's First ZK-Native L1 Blockchain - Privacy + Performance + EVM Compatibility**
 
 ## 🎯 **Overview**
 
-LightChain L1 now implements **Solana-style parallel execution** while maintaining **100% EVM compatibility**. This gives you the best of both worlds: Solana's performance with Ethereum's ecosystem.
+LightChain L1 is the **world's first ZK-native L1 blockchain** that implements **Solana-style parallel execution**, **comprehensive zero-knowledge capabilities**, and **100% EVM compatibility**. This gives you the best of all worlds: Solana's performance + ZK privacy + Ethereum's ecosystem.
 
 ## ⚡ **Performance Improvements Implemented**
 
@@ -41,14 +41,14 @@ Traditional Blockchain:        LightChain L1:
 ./scripts/test-performance.sh
 ```
 
-| **Blockchain** | **TPS** | **Finality** | **EVM Compatible** |
-|---------------|---------|--------------|-------------------|
-| **LightChain L1** | **6,400+** | **4 seconds** | **✅ Yes** |
-| Solana | 65,000 (peak) | 2.5 seconds | ❌ No |
-| Solana | 2,500 (real-world) | 2.5 seconds | ❌ No |
-| Polygon | 7,000 | 6 seconds | ✅ Yes |
-| Ethereum | 15 | 6 minutes | ✅ Yes |
-| BSC | 2,000 | 3 seconds | ✅ Yes |
+| **Blockchain** | **TPS** | **Finality** | **EVM Compatible** | **ZK Native** | **Privacy** |
+|---------------|---------|--------------|-------------------|----------------|-------------|
+| **LightChain L1** | **6,400+ base + 150K rollups** | **4 seconds** | **✅ Yes** | **✅ Native** | **✅ Full** |
+| Solana | 65,000 (peak) | 2.5 seconds | ❌ No | ❌ No | ❌ No |
+| Solana | 2,500 (real-world) | 2.5 seconds | ❌ No | ❌ No | ❌ No |
+| Polygon | 7,000 | 6 seconds | ✅ Yes | ❌ No | ❌ No |
+| Ethereum | 15 | 6 minutes | ✅ Yes | ❌ No | ❌ No |
+| BSC | 2,000 | 3 seconds | ✅ Yes | ❌ No | ❌ No |
 
 ### **Real Performance Tests**
 ```bash

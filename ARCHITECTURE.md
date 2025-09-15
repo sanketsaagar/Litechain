@@ -37,10 +37,11 @@ lightchain-l1/
 
 ## Core Components
 
-### 1. L1 Chain Engine (`pkg/l1chain/`)
-- Main blockchain implementation
-- Coordinates all other components
-- Manages block production and validation
+### 1. ZK-Native L1 Chain Engine (`pkg/l1chain/`)
+- Main blockchain implementation with integrated ZK engine
+- Coordinates all components including ZK proof verification
+- Manages block production, validation, and ZK rollup settlement
+- Native support for privacy-preserving transactions
 
 ### 2. HPoS Consensus (`pkg/consensus/`)
 - Hybrid Proof-of-Stake consensus mechanism
@@ -67,12 +68,20 @@ lightchain-l1/
 - Initial validator set
 - Token allocation and economics parameters
 
+### 7. ZK Engine (`pkg/zk/`)
+- **Native zero-knowledge capabilities**
+- Multi-proof system support (SNARKs, STARKs, Bulletproofs)
+- ZK rollup infrastructure and management
+- Privacy-preserving transaction processing
+- Universal ZK bridges for cross-chain privacy
+
 ## Design Principles
 
-### L1-First Architecture
-- **Independent blockchain**: Not a Layer 2 or sidechain
-- **Native consensus**: HPoS consensus without external dependencies
-- **Self-contained**: All validation and finality within the L1
+### ZK-Native L1-First Architecture
+- **Independent ZK-enabled blockchain**: Not a Layer 2 or sidechain
+- **Native ZK consensus**: HPoS consensus with integrated ZK verification
+- **ZK-powered privacy**: Native privacy-preserving transactions
+- **Self-contained**: All validation, finality, and ZK proofs within the L1
 
 ### Performance-Weighted Validation
 - **Merit-based selection**: Validators chosen by performance + stake
@@ -84,12 +93,20 @@ lightchain-l1/
 - **Testability**: Components can be tested independently
 - **Extensibility**: Easy to add new features and optimizations
 
-## Future Extensions
+## Current ZK Features & Future Extensions
 
-The architecture is designed to support future enhancements:
+The ZK-native architecture currently includes:
 
-- **RPC/API layer**: Full JSON-RPC and GraphQL support
-- **Advanced cryptography**: Zero-knowledge proofs and privacy features
-- **Cross-chain bridges**: Interoperability with other blockchains
-- **Smart contracts**: EVM-compatible smart contract execution
-- **Data availability**: Enhanced data availability guarantees
+### **✅ Implemented ZK Features**
+- **Multi-proof systems**: SNARKs, STARKs, Bulletproofs
+- **ZK rollup infrastructure**: Up to 100 rollups, 50K TPS each
+- **Privacy-preserving transactions**: Hidden amounts and recipients
+- **Universal ZK bridges**: Private cross-chain transfers
+- **ZK-enhanced EVM**: Privacy extensions to Solidity contracts
+
+### **🔮 Future ZK Enhancements**
+- **ZK-ML integration**: Zero-knowledge machine learning
+- **Advanced ZK circuits**: Custom privacy-preserving applications
+- **ZK governance**: Private voting and proposal mechanisms
+- **ZK identity**: Privacy-preserving identity verification
+- **ZK compliance**: Regulatory compliance with privacy

@@ -16,6 +16,7 @@ import (
 	"github.com/sanketsaagar/lightchain-l1/pkg/mempool"
 	"github.com/sanketsaagar/lightchain-l1/pkg/network"
 	"github.com/sanketsaagar/lightchain-l1/pkg/staking"
+	"github.com/sanketsaagar/lightchain-l1/pkg/zk"
 )
 
 // LightChainL1 represents the complete L1 blockchain implementation
@@ -31,6 +32,9 @@ type LightChainL1 struct {
 	// High-performance transaction processing (Solana-style)
 	mempool  *mempool.MemPool
 	executor *execution.ParallelExecutor
+
+	// Zero-knowledge capabilities
+	zkEngine *zk.ZKEngine
 
 	// Chain configuration
 	chainID     *big.Int
@@ -92,6 +96,9 @@ func NewLightChainL1(config *L1Config) (*LightChainL1, error) {
 	txMempool := mempool.NewMemPool(mempool.DefaultMemPoolConfig())
 	parallelExecutor := execution.NewParallelExecutor(config.ChainID, execution.DefaultParallelConfig())
 
+	// Initialize zero-knowledge engine
+	zkEngine := zk.NewZKEngine(zk.DefaultZKConfig())
+
 	l1 := &LightChainL1{
 		consensus:      consensusEngine,
 		network:        p2pNetwork,
@@ -100,6 +107,7 @@ func NewLightChainL1(config *L1Config) (*LightChainL1, error) {
 		genesis:        genesisBlock,
 		mempool:        txMempool,
 		executor:       parallelExecutor,
+		zkEngine:       zkEngine,
 		chainID:        config.ChainID,
 		nodeAddress:    config.NodeAddress,
 		privateKey:     config.PrivateKey,
