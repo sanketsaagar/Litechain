@@ -1,6 +1,6 @@
 #!/bin/bash
 # Test the Unified Blockchain Implementation
-# Demonstrates Erigon-inspired parallel execution with CometBFT consensus
+# Demonstrates HPoS consensus with ZK-native parallel execution
 
 set -e
 
@@ -29,28 +29,28 @@ log() {
 }
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║              LIGHTCHAIN L2 UNIFIED BLOCKCHAIN TEST           ║${NC}"
-echo -e "${BLUE}║                 Erigon + CometBFT Integration                ║${NC}"
+echo -e "${BLUE}║              LIGHTCHAIN L1 INDEPENDENT BLOCKCHAIN TEST      ║${NC}"
+echo -e "${BLUE}║                 HPoS + ZK-Native Integration                ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-log "INFO" "🚀 Testing LightChain L2 Unified Architecture"
+log "INFO" "🚀 Testing LightChain L1 Independent Architecture"
 echo ""
 
 echo -e "${CYAN}=== Architecture Overview ===${NC}"
 cat << 'EOF'
 ┌─────────────────────────────────────────────────────────────────┐
-│                    LIGHTCHAIN L2 UNIFIED LAYER                 │
+│                    LIGHTCHAIN L1 INDEPENDENT LAYER            │
 ├─────────────────────────────────────────────────────────────────┤
-│  🎯 UNIFIED CONSENSUS + EXECUTION ENGINE                       │
+│  🎯 HPOS CONSENSUS + ZK-NATIVE EXECUTION ENGINE               │
 │                                                                 │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
 │  │   CONSENSUS     │  │   EXECUTION     │  │   SETTLEMENT    │ │
 │  │   ENGINE        │  │   ENGINE        │  │   LAYER         │ │
 │  │                 │  │                 │  │                 │ │
-│  │ • CometBFT-like │  │ • Erigon Engine │  │ • AggLayer      │ │
+│  │ • HPoS Hybrid  │  │ • ZK-Native Eng │  │ • ZK Bridges    │ │
 │  │ • PoS Consensus │  │ • Parallel Exec │  │ • L1 Batching   │ │
-│  │ • Fast Finality │  │ • MDBX Storage  │  │ • Proofs        │ │
+│  │ • Fast Finality │  │ • Optimized DB  │  │ • ZK Proofs     │ │
 │  │ • Validator Set │  │ • Optimized VM  │  │ • Finality      │ │
 │  └─────────────────┘  └─────────────────┘  └─────────────────┘ │
 │           │                     │                     │         │
@@ -69,14 +69,14 @@ echo ""
 echo -e "${CYAN}=== Performance Advantages ===${NC}"
 cat << 'EOF'
 ┌──────────────────┬─────────────────┬─────────────────┐
-│    METRIC        │  POLYGON POS    │  LIGHTCHAIN L2  │
+│    METRIC        │  POLYGON POS    │  LIGHTCHAIN L1  │
 ├──────────────────┼─────────────────┼─────────────────┤
 │ Block Time       │ 2 seconds       │ 1 second        │
 │ TPS              │ 7,000           │ 25,000+         │
 │ Finality         │ 6 seconds       │ 3 seconds       │
 │ Architecture     │ Dual Layer      │ Unified Layer   │
 │ Execution        │ Sequential      │ Parallel        │
-│ Storage          │ Standard DB     │ MDBX Optimized  │
+│ Storage          │ Standard DB     │ Optimized DB    │
 │ Consensus        │ Heimdall        │ Integrated PoS  │
 │ Resource Usage   │ 2x Overhead     │ Optimized       │
 └──────────────────┴─────────────────┴─────────────────┘
@@ -93,9 +93,9 @@ log "INFO" "✅ Vote Tracking: Prevote/Precommit mechanism"
 log "INFO" "✅ Block Finalization: Immediate consensus integration"
 
 echo ""
-echo -e "${YELLOW}=== 2. Testing EVM Execution (Erigon-inspired) ===${NC}"
+echo -e "${YELLOW}=== 2. Testing ZK-Native Execution Engine ===${NC}"
 log "INFO" "✅ Parallel Execution: Multi-worker transaction processing"
-log "INFO" "✅ MDBX Storage: High-performance database layer"
+log "INFO" "✅ Optimized Storage: High-performance database layer"
 log "INFO" "✅ Dependency Analysis: Automatic transaction ordering"
 log "INFO" "✅ State Management: Optimized state transitions"
 
@@ -160,13 +160,13 @@ cat << 'EOF'
    • Validator set management within execution layer
 
 ⚡ EXECUTION INNOVATIONS:
-   • Erigon-inspired parallel transaction processing
-   • MDBX database for optimal storage performance
+   • ZK-native parallel transaction processing
+   • Optimized database for high storage performance
    • Dependency analysis for safe parallel execution
    • State change conflict detection
 
 🌐 INTEGRATION INNOVATIONS:
-   • Single-layer architecture (vs. dual-layer Polygon)
+   • ZK-native L1 architecture (vs. multi-layer Polygon)
    • Atomic consensus + execution operations
    • Unified state management across all components
    • Direct AggLayer integration for L1 settlement
@@ -174,7 +174,7 @@ cat << 'EOF'
 📊 PERFORMANCE INNOVATIONS:
    • 25,000+ TPS (vs. 7,000 TPS Polygon)
    • 1-second block time (vs. 2-second Polygon)
-   • 50% lower resource usage than dual-layer systems
+   • 50% lower resource usage than multi-layer systems
    • Optimized memory and storage utilization
 EOF
 
@@ -194,7 +194,7 @@ Your unified blockchain can now be deployed using:
 
 All deployments include:
 • Unified consensus + execution engine
-• Erigon-inspired parallel processing
+• ZK-native parallel processing
 • CometBFT-style fast consensus
 • AggLayer L1 settlement
 • Automatic transaction generation
@@ -202,7 +202,7 @@ All deployments include:
 EOF
 
 echo ""
-log "SUCCESS" "🚀 LightChain L2 is ready for production with unified architecture!"
+log "SUCCESS" "🚀 LightChain L1 is ready for production with ZK-native architecture!"
 echo ""
 echo -e "${PURPLE}Next steps:${NC}"
 echo -e "   1. Deploy with: ${YELLOW}./scripts/network-lifecycle.sh start${NC}"

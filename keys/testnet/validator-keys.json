@@ -1,0 +1,30 @@
+{
+  "validators": [
+    {
+      "name": "Genesis Validator 1",
+      "private_key": "a7bdca7383c3d0d7158a21a7821390ed8f336317422c4d0359674e83d4cb353a",
+      "address": "0xe3db4bd8a25a64b89f58ca91ce8486ef95230947",
+      "public_key": "0x04e3db4bd8a25a64b89f58ca91ce8486ef95230947545925e3cdd2700f5a79580c"
+    },
+    {
+      "name": "Genesis Validator 2",
+      "private_key": "e32eaaf652ec95b00b3f7b53b3103ce2f7b51c4d69413b715a4cc9e67f094d06",
+      "address": "0xf1abe289a01c746aa17d035205f0b2c1b074b985",
+      "public_key": "0x04f1abe289a01c746aa17d035205f0b2c1b074b98533434f770f79a2d0b493efa5"
+    },
+    {
+      "name": "Genesis Validator 3",
+      "private_key": "c9c5b3ece3022a057f6a6625b621ba2918689c490c71a7698edff97209e0eaaa",
+      "address": "0x3a19d28e8653f745206840574bc42a26d8ad1004",
+      "public_key": "0x043a19d28e8653f745206840574bc42a26d8ad10042f8844a7af8b667ed90a1b44"
+    }
+  ],
+  "treasury": {
+    "private_key": "83a5b1e5a62d4f1ff630fdf92ec8b3f773faf506079c9aa62edd396abb5fc992",
+    "address": "0xce2710d05e544b75bd7d8a99ab5550cf2c1967c8"
+  },
+  "development_fund": {
+    "private_key": "12f8fd1a6e4e3ee265806d4d1035b9f949d0f725247f29388b72badb87845c7c",
+    "address": "0x20b3c45755a474ca0bb68c49805173d294df788f"
+  }
+}

@@ -75,7 +75,7 @@ l1-test:
 # Run Go tests
 test:
 	@echo "🧪 Running Go tests..."
-	@go test -v ./pkg/unified/... ./internal/... 2>/dev/null || echo "📝 Note: Go tests require implementation completion"
+	@go test -v ./pkg/... ./internal/... 2>/dev/null || echo "📝 Note: Go tests require implementation completion"
 	@echo "✅ Go tests complete"
 
 # Test both Docker and Kurtosis environments
@@ -87,7 +87,7 @@ test-all: l1-test
 # Run linter
 lint:
 	@echo "🔍 Running linter..."
-	@golangci-lint run ./pkg/unified/... ./internal/... ./cmd/... 2>/dev/null || echo "⚠️  golangci-lint not installed, skipping..."
+	@golangci-lint run ./pkg/... ./internal/... ./cmd/... 2>/dev/null || echo "⚠️  golangci-lint not installed, skipping..."
 	@echo "✅ Linting complete"
 
 # Format code
@@ -108,6 +108,12 @@ dev-setup:
 	@echo "🛠️  Setting up development environment..."
 	@./scripts/setup-dev.sh
 	@echo "✅ Development setup complete"
+
+# Generate secure testnet keys
+generate-keys:
+	@echo "🔐 Generating secure testnet keys..."
+	@./scripts/generate-testnet-keys.sh
+	@echo "✅ Secure keys generated"
 
 # Monitor blockchain activity
 monitor:
@@ -173,6 +179,7 @@ help:
 	@echo "🛠️  DEVELOPMENT COMMANDS:"
 	@echo "   dev-setup     - Setup development environment"
 	@echo "   dev-start     - Start full development environment"
+	@echo "   generate-keys - Generate secure testnet keys"
 	@echo "   lint          - Run code linter"
 	@echo "   fmt           - Format Go code"
 	@echo "   deps          - Install/update dependencies"

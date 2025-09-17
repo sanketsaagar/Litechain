@@ -1,0 +1,181 @@
+# LightChain L1 Genesis Configuration - SECURE TESTNET VERSION
+# Generated on: Thu Sep 18 00:54:57 IST 2025
+# WARNING: These keys are for testnet use only!
+
+# Chain information
+chain_id: 1337
+network_id: 1337
+chain_name: "LightBeam Testnet"
+
+# Genesis block configuration
+genesis:
+  timestamp: "2025-09-17T19:24:57Z"
+  parent_hash: "0x0000000000000000000000000000000000000000000000000000000000000000"
+  extra_data: "LightBeam Testnet - Secure Deployment 20250918"
+  gas_limit: "10000000"
+  difficulty: "0x1"
+
+# Consensus configuration
+consensus:
+  type: "hpos" # Hybrid Proof of Stake (L1 native)
+  epoch_length: 100
+  block_time: "2s"
+  min_validators: 3
+  max_validators: 100
+
+  # Staking parameters
+  staking:
+    min_stake: "1000000000000000000000" # 1000 tokens (18 decimals)
+    slash_fraction_double_sign: "0.05" # 5%
+    slash_fraction_downtime: "0.01" # 1%
+    downtime_jail_duration: "600s" # 10 minutes
+
+# Initial validators - SECURE GENERATED KEYS
+validators:
+- address: "0xe3db4bd8a25a64b89f58ca91ce8486ef95230947"
+  name: "Genesis Validator 1"
+  pub_key: "0x04e3db4bd8a25a64b89f58ca91ce8486ef95230947545925e3cdd2700f5a79580c"
+  stake: "5000000000000000000000" # 5000 tokens
+  commission_rate: "0.10" # 10%
+
+- address: "0xf1abe289a01c746aa17d035205f0b2c1b074b985"
+  name: "Genesis Validator 2"
+  pub_key: "0x04f1abe289a01c746aa17d035205f0b2c1b074b98533434f770f79a2d0b493efa5"
+  stake: "5000000000000000000000" # 5000 tokens
+  commission_rate: "0.10" # 10%
+
+- address: "0x3a19d28e8653f745206840574bc42a26d8ad1004"
+  name: "Genesis Validator 3"
+  pub_key: "0x043a19d28e8653f745206840574bc42a26d8ad10042f8844a7af8b667ed90a1b44"
+  stake: "5000000000000000000000" # 5000 tokens
+  commission_rate: "0.10" # 10%
+
+# Initial token allocation - SECURE GENERATED ADDRESSES
+allocations:
+# Pre-funded validator accounts
+- address: "0xe3db4bd8a25a64b89f58ca91ce8486ef95230947"
+  balance: "100000000000000000000000000" # 100M tokens
+
+- address: "0xf1abe289a01c746aa17d035205f0b2c1b074b985"
+  balance: "100000000000000000000000000" # 100M tokens
+
+- address: "0x3a19d28e8653f745206840574bc42a26d8ad1004"
+  balance: "100000000000000000000000000" # 100M tokens
+
+# Treasury account - SECURE GENERATED
+- address: "0xce2710d05e544b75bd7d8a99ab5550cf2c1967c8"
+  balance: "500000000000000000000000000" # 500M tokens
+
+# Development fund - SECURE GENERATED
+- address: "0x20b3c45755a474ca0bb68c49805173d294df788f"
+  balance: "200000000000000000000000000" # 200M tokens
+
+# Token configuration
+token:
+  name: "LightChain Token"
+  symbol: "LIGHT"
+  decimals: 18
+  total_supply: "1000000000000000000000000000" # 1B tokens
+
+# Gas configuration
+gas:
+  min_gas_price: "1000000000" # 1 Gwei
+  gas_price_oracle:
+    enabled: true
+    base_fee_max_change_denominator: 8
+    elasticity_multiplier: 2
+
+# Fee configuration
+fees:
+  transaction_fee: "21000" # Base transaction fee in gas
+  contract_creation_fee: "53000" # Contract creation fee in gas
+  contract_call_fee: "25000" # Contract call fee in gas
+
+# L1 Native Features
+l1_native:
+  enabled: true
+  finality_blocks: 3
+  cross_chain_bridges: true
+  native_staking: true
+
+# Precompiled contracts
+precompiles:
+# Standard Ethereum precompiles
+- address: "0x0000000000000000000000000000000000000001" # ecRecover
+  enabled: true
+- address: "0x0000000000000000000000000000000000000002" # sha256
+  enabled: true
+- address: "0x0000000000000000000000000000000000000003" # ripemd160
+  enabled: true
+- address: "0x0000000000000000000000000000000000000004" # identity
+  enabled: true
+- address: "0x0000000000000000000000000000000000000005" # modexp
+  enabled: true
+- address: "0x0000000000000000000000000000000000000006" # bn256Add
+  enabled: true
+- address: "0x0000000000000000000000000000000000000007" # bn256ScalarMul
+  enabled: true
+- address: "0x0000000000000000000000000000000000000008" # bn256Pairing
+  enabled: true
+- address: "0x0000000000000000000000000000000000000009" # blake2f
+  enabled: true
+
+# LightChain L1 specific precompiles
+- address: "0x0000000000000000000000000000000000001001" # Cross-chain bridges
+  enabled: true
+- address: "0x0000000000000000000000000000000000001002" # HPoS staking operations
+  enabled: true
+- address: "0x0000000000000000000000000000000000001003" # Developer rewards
+  enabled: true
+
+# Smart contracts to deploy at genesis
+contracts:
+# Core system contracts
+- name: "ValidatorSet"
+  address: "0x0000000000000000000000000000000000002001"
+  bytecode: "0x" # To be compiled and added
+
+- name: "StakingManager"
+  address: "0x0000000000000000000000000000000000002002"
+  bytecode: "0x" # To be compiled and added
+
+- name: "BridgeContract"
+  address: "0x0000000000000000000000000000000000002003"
+  bytecode: "0x" # To be compiled and added
+
+- name: "GovernanceContract"
+  address: "0x0000000000000000000000000000000000002004"
+  bytecode: "0x" # To be compiled and added
+
+# Network bootstrapping
+bootstrap:
+  # Bootnode configurations
+  bootnodes:
+  - "/ip4/127.0.0.1/tcp/30301/p2p/16Uiu2HAm7Vs8StL5RjKaRqN7BkZZS6Zw9G1XriBaYGZq4TdB5Hj4"
+  - "/ip4/127.0.0.1/tcp/30302/p2p/16Uiu2HAm8Kp8TxQ9RXrBGzgP9kBm7LJyGj5G4TdB5Hj4KKr2TZnE"
+
+  # DNS seeds (for production)
+  dns_seeds:
+  - "seed1.lightchain.network"
+  - "seed2.lightchain.network"
+  - "seed3.lightchain.network"
+
+# Hard fork schedule
+forks:
+# Future upgrades can be scheduled here
+- name: "Genesis"
+  block: 0
+  enabled: true
+
+# Example future fork
+- name: "Upgrade1"
+  block: 1000000
+  enabled: false
+  description: "Enhanced ZK integration"
+
+# Development settings (testnet only)
+development:
+  enable_dev_accounts: false # Disabled for secure deployment
+  auto_mine_blocks: true
+  dev_period: "2s" # Mining period for testnet
+  unlock_accounts: [] # No pre-unlocked accounts for security
